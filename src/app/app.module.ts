@@ -3,14 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserSignupComponent } from './modules/user-signup/user-signup.component';
-import { UserLoginComponent } from './modules/user-login/user-login.component';
+import { UserSignupComponent } from './modules/users/user-signup/user-signup.component';
+import { UserLoginComponent } from './modules/users/user-login/user-login.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserSignupComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
