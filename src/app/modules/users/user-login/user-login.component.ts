@@ -12,4 +12,8 @@ export class UserLoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public onSubmit(event:any){
+    console.log("submitted!!");
+  }
+
 }
