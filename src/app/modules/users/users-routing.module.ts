@@ -5,12 +5,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'user-signup',
+    path:'login',
+    component:UserLoginComponent
+  },
+  {
+    path:'signup',
     component:UserSignupComponent
   },
   {
-    path:'login',
-    component:UserLoginComponent
+    path:'**',
+    redirectTo: 'login'
   }
 ];
 
