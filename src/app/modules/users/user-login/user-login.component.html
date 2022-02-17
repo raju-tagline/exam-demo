@@ -15,7 +15,7 @@
         <div *ngIf="!password.valid && password.touched">
             <small class="text-danger">Please enter valid password</small>
         </div>
-        <label for=""><a routerLink="/users/signup">Don't have an Account? Register</a></label>
+        <small><a routerLink="/users/signup">Don't have an Account? Register</a></small>
         <div>
             <button class="btn btn-outline-info col-sm-3 mt-2" type="submit" [disabled]="!mysignup.valid">Login</button>
         </div>

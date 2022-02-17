@@ -1,29 +1,59 @@
-<p>user-signup works!</p>
 <div class="row justify-content-center">
     <div class="col-sm-6">
-        <label for="name"><strong>Full Name</strong></label>
-        <div>
-            <input type="text" name="" id="name" class="form-control">
-        </div>
-        <label for="email"><strong>Email</strong></label>
-        <div>
-            <input type="text" name="" id="email" class="form-control">
-        </div>
-        <label for="password"><strong>Password</strong></label>
-        <div>
-            <input type="text" name="" id="password" class="form-control">
-        </div>
-        <label for="password"><strong>Role</strong></label>
-        <div>
-            <select name="" id="" class="dropdown col-sm-3">
-                <option value="" placeholder="select"></option>
-                <option value="">Teacher</option>
-                <option value="">Student</option>
-            </select>
-        </div>
-        <label for=""><a routerLink="/users/user-signup">Don't have an Account? Register</a></label>
-        <div>
-            <button class="btn btn-info col-sm-3 mt-2">Login</button>
-        </div>
+        <form [formGroup]="myRegistrationForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name"><strong>Full Name</strong></label>
+                <div>
+                    <input type="text" id="name" formControlName="name" class="form-control">
+                </div>
+                <div *ngIf="!myRegistrationForm.get('name')?.valid && myRegistrationForm.get('name')?.touched">
+                    <small class="text-danger">Name is required</small>
+                </div>
+            </div>
+
+            <div>
+                <label for="email"><strong>Email</strong></label>
+                <div>
+                    <input type="text" id="email" formControlName="email" class="form-control">
+                    <div *ngIf="!myRegistrationForm.get('email')?.valid && myRegistrationForm.get('email')?.touched">
+                        <small class="text-danger"> Please enter valid email</small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label for="password"><strong>Password</strong></label>
+                <div>
+                    <input type="password" id="password" formControlName="password" class="form-control">
+                </div>
+                <div *ngIf="!myRegistrationForm.get('password')?.valid && myRegistrationForm.get('password')?.touched">
+                    <small class="text-danger">Please enter valid password</small>
+                </div>
+                <div
+                    *ngIf="!myRegistrationForm.get('password')?.valid && myRegistrationForm.get('password')?.errors?.['pattern']">
+                    <small class="text-danger">
+                        Please use at least one uppercase letter,one lowercase letter and one number,password must be 6
+                        character long!
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <label for="role"><strong>Role</strong></label>
+                <div>
+                    <select id="role" class="form-control" formControlName="role">
+                        <option value="" selected disabled hidden>Select your role</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                </div>
+                <div *ngIf="!myRegistrationForm.get('role')?.valid && myRegistrationForm.get('role')?.touched">
+                    <small class="text-danger">Please select atleast one role</small>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary col-sm-3 mt-2" [disabled]="!myRegistrationForm.valid">Sign up</button>
+            </div>
+        </form>
     </div>
 </div>
