@@ -10,7 +10,7 @@
         </div>
         <label for="password"><strong>Password</strong></label>
         <div>
-            <input type="password" id="password" class="form-control" name="password" required minlength="6" #password="ngModel" ngModel>
+            <input type="password" id="password" class="form-control" name="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,32}$" required minlength="6" #password="ngModel" ngModel>
         </div>
         <div *ngIf="!password.valid && password.touched">
             <small class="text-danger">Please enter valid password</small>
