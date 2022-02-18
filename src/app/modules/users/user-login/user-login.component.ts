@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 })
 export class UserLoginComponent implements OnInit {
   public token!:any;
-
+  public name!:any;
+  
   constructor(
-    private http: UserDataService, 
+    private userDataService: UserDataService, 
     private toastr: ToastrService,
     private router:Router
     ) {}
@@ -23,10 +24,12 @@ export class UserLoginComponent implements OnInit {
   public onSubmit(event: any): void {
     const data = event.value;
 
-    this.http.login(data).subscribe((res: any) => {
+    this.userDataService.login(data).subscribe((res: any) => {
       if (res?.statusCode === 200 && res?.data.role === 'teacher') {
         console.log("teacher login");
+        console.log('res.name :>> ', res.data.name);
         this.token = localStorage.setItem('Token',res.data.token);
+        this.name = localStorage.setItem('name',res.data.name);
         this.toastr.success(res.message);
         this.router.navigate(['/teacher/dashboard']);
       } else if(res?.statusCode === 200 && res?.data.role === 'student'){

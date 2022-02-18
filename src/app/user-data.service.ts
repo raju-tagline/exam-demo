@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class UserDataService implements OnInit {
   private url: string = environment.url;
   public token: any = localStorage.getItem('Token');
+  public name: any = localStorage.getItem('name');
 
   constructor(private http: HttpClient) {}
 
@@ -23,21 +24,10 @@ export class UserDataService implements OnInit {
     return this.http.post<UserData>(this.url + 'users/Login', login);
   }
 
-  public storeData(): Observable<any> {
-    const headers = new HttpHeaders()
-      .set('access-token', this.token);
-    return this.http.get(
-      'https://nodejsexamination.herokuapp.com/dashboard/Teachers',
-      { headers: headers }
-    );
-  }
-
   public showStudentData(): Observable<UserData> {
-    const headers = new HttpHeaders()
-      .set('access-token', this.token);
-    return this.http.get<UserData>(
-      this.url + 'dashboard/Teachers',
-      { headers: headers }
-    );
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.get<UserData>(this.url + 'dashboard/Teachers', {
+      headers: headers,
+    });
   }
 }
