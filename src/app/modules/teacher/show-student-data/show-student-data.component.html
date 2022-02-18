@@ -8,15 +8,17 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let data of studentData; let i = 'index+1';">
                         <td>{{ i }}</td>
                         <td> {{ data.status }} </td>
-                        <td> {{ data._id }} </td>
+                        <td #studentId> {{ data._id }} </td>
                         <td> {{ data.name }} </td>
                         <td> {{ data.email }} </td>
+                        <td><button class="btn btn-outline-info" (click)="getId(studentId)"> Profile</button></td>
                     </tr>
                 </tbody>
             </table>

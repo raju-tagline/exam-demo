@@ -30,4 +30,12 @@ export class UserDataService implements OnInit {
       headers: headers,
     });
   }
+
+  public viewStudentData(userID:string): Observable<UserData> {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    const getUrl = this.url + 'dashboard/Teachers/viewStudentDetail?id=' + userID;
+    return this.http.get<UserData>(getUrl,{
+      headers: headers,
+    });
+  }
 }

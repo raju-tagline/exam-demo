@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowStudentDataComponent implements OnInit {
   public studentData: StudentData[] = [ ];
+  public studentID!:String ;
+
 
   constructor(private userDataService: UserDataService) {}
 
@@ -16,5 +18,14 @@ export class ShowStudentDataComponent implements OnInit {
     this.userDataService.showStudentData().subscribe((data: any) => {
       this.studentData = data.data;
     });
+  }
+
+  getId(id:any){
+    this.studentID = id;
+    console.log('id :>> ', this.studentID);
+    // this.userDataService.viewStudentData(id).subscribe((data: any) => {
+    //   this.studentID = data.data.name;
+    //   console.log('this.studentID :>> ', this.studentID);
+    // });
   }
 }
