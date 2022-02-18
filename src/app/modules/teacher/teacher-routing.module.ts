@@ -9,7 +9,7 @@ const routes: Routes = [
     component:DashboardComponent
   },
   {
-    path:'show-student-data',
+    path:'student-list',
     component:ShowStudentDataComponent
   },
   // {
