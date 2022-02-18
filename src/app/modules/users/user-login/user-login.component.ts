@@ -1,3 +1,4 @@
+import { UserData } from './../../../interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -23,9 +24,6 @@ export class UserLoginComponent implements OnInit {
     const data = event.value;
 
     this.http.login(data).subscribe((res: any) => {
-      if(res.message === 'Invalid email' || res.message === 'Invalid Password'){
-        console.log('Please enter valid login');
-      }
       if (res?.statusCode === 200 && res?.data.role === 'teacher') {
         console.log("teacher login");
         this.token = localStorage.setItem('Token',res.data.token);
