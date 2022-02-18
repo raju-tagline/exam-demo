@@ -1,5 +1,5 @@
 import { UserData } from './interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
@@ -9,16 +9,35 @@ import { Observable } from 'rxjs';
 })
 export class UserDataService implements OnInit {
   private url: string = environment.url;
+  public token: any = localStorage.getItem('Token');
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 
-  public signUp(data: UserData): Observable<any> {
-    return this.http.post(this.url + 'users/SignUp', data);
+  public signUp(data: UserData): Observable<UserData> {
+    return this.http.post<UserData>(this.url + 'users/SignUp', data);
   }
 
-  public login(login: UserData): Observable<any> {
-    return this.http.post(this.url + 'users/Login', login);
+  public login(login: UserData): Observable<UserData> {
+    return this.http.post<UserData>(this.url + 'users/Login', login);
+  }
+
+  public storeData(): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('access-token', this.token);
+    return this.http.get(
+      'https://nodejsexamination.herokuapp.com/dashboard/Teachers',
+      { headers: headers }
+    );
+  }
+
+  public showStudentData(): Observable<UserData> {
+    const headers = new HttpHeaders()
+      .set('access-token', this.token);
+    return this.http.get<UserData>(
+      this.url + 'dashboard/Teachers',
+      { headers: headers }
+    );
   }
 }
