@@ -12,10 +12,10 @@ const routes: Routes = [
     path:'student-list',
     component:ShowStudentDataComponent
   },
-  // {
-  //   path:'**',
-  //   redirectTo:''
-  // },
+  {
+    path:'**',
+    redirectTo:'dashboard'
+  },
 ];
 
 @NgModule({
