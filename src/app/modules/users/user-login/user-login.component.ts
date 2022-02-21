@@ -27,18 +27,20 @@ export class UserLoginComponent implements OnInit {
     this.userDataService.login(data).subscribe((res: any) => {
       if (res?.statusCode === 200 && res?.data.role === 'teacher') {
         console.log("teacher login");
-        console.log('res.name :>> ', res.data.name);
-        this.token = localStorage.setItem('Token',res.data.token);
-        this.name = localStorage.setItem('name',res.data.name);
-        this.toastr.success(res.message);
+        console.log('res.name :>> ', res?.data.name);
+        this.token = localStorage.setItem('Token',res?.data.token);
+        this.name = localStorage.setItem('name',res?.data.name);
+        this.toastr.success(res?.message);
         this.router.navigate(['/teacher/dashboard']);
       } else if(res?.statusCode === 200 && res?.data.role === 'student'){
         console.log("Student login");
-        this.token = localStorage.setItem('Token',res.data.token);
-        this.toastr.success(res.message);
-        // this.router.navigate([''])        
+        console.log('res.name :>> ', res?.data.name);
+        this.token = localStorage.setItem('Token',res?.data.token);
+        this.name = localStorage.setItem('name',res?.data.name);
+        this.toastr.success(res?.message);
+        this.router.navigate(['/student/dashboard'])        
       } else{
-        this.toastr.error(res.message);
+        this.toastr.error(res?.message);
       }
     });
   }
