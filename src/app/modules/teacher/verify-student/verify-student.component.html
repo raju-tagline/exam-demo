@@ -1,1 +1,15 @@
-<p>verify-student works!</p>
+<div class="model" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div *ngFor="let u of user" class="modal-content">
+        <div>Student name :-<span>{{ u?.name }}</span></div>
+    </div>
+    <div class="modal-body">
+        <div *ngFor="let s of student">
+            <div>Student Rank :-<span [ngStyle]="{'color':'orange'}"> {{ s?.rank }} </span></div>
+            <div>Student Score :- <span [ngStyle]="{'color':'skyblue'}">{{ s?.score }}</span></div>
+            <div>Subject Name :- <span [ngStyle]="{'color':'skyblue'}">{{ s?.subjectName }}</span></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" (click)="close()">Close</button>
+    </div>
+</div>
