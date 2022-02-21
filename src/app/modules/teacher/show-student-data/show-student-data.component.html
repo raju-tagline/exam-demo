@@ -1,26 +1,52 @@
-    <div class="row justify-content-center">
-        <div class="col-sm-8">
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th>S.No</th>
-                        <th>Status</th>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let data of studentData; let i = 'index+1';">
-                        <td>{{ i }}</td>
-                        <td> {{ data.status }} </td>
-                        <td #studentId> {{ data._id }} </td>
-                        <td> {{ data.name }} </td>
-                        <td> {{ data.email }} </td>
-                        <td><button class="btn btn-outline-info" (click)="getId(studentId)"> Profile</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<app-dashboard></app-dashboard>
+<div class="row justify-content-center" *ngIf="loadData">
+    <div class="col-sm-1">
+        <div class="spinner-border text-primary" role="status"></div>
     </div>
+</div>
+
+
+
+<div class="row justify-content-center" *ngIf="!loadData">
+    <div class="col-sm-8">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>S.No</th>
+                    <th>Status</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of studentData; let i = 'index+1';">
+                    <td>{{ i }}</td>
+                    <td> {{ data.status }} </td>
+                    <td> {{ data._id }} </td>
+                    <td> {{ data.name }} </td>
+                    <td> {{ data.email }} </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-info" (click)="studentProfileDetail(mymodal)"> Profile</button>
+                    </td>
+                    <td>
+                        <ng-template #mymodal let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">{{ data.name }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Student Status :- {{ data.status }}</p>
+                                <p>Student Id :- {{ data._id }}</p>
+                                <p>Student Email :- {{ data.email }}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary col-sm-3" (click)="modal.close()">Ok</button>
+                            </div>
+                        </ng-template>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
