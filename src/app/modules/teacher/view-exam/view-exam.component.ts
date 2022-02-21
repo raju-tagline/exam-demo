@@ -1,3 +1,4 @@
+import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewExamComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userDataService:UserDataService) { }
 
   ngOnInit(): void {
+    this.userDataService.viewExam().subscribe((res) => {
+      console.log('res :>> ', res);
+    })
   }
-
+  
 }

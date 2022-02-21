@@ -38,4 +38,12 @@ export class UserDataService implements OnInit {
       headers: headers,
     });
   }
+
+  public viewExam(){
+    // return console.log("Hello Exam !");;
+    const headers = new HttpHeaders().set('access-token',this.token);
+    return this.http.get(this.url + 'dashboard/Teachers/viewExam',{
+      headers:headers
+    });
+  }
 }
