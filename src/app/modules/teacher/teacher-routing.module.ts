@@ -19,7 +19,7 @@ const routes: Routes = [
     component:VerifyStudentComponent
   },
   {
-    path:'exam',
+    path:'view-exam',
     component:ViewExamComponent
   },
   {
