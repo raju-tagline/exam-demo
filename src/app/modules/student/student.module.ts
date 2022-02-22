@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { StudentRoutingModule } from './student-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExamPaperComponent } from './exam-paper/exam-paper.component';
+import { ViewExamComponent } from './view-exam/view-exam.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    ExamPaperComponent
+    ExamPaperComponent,
+    ViewExamComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,39 @@
+<app-dashboard></app-dashboard>
+<div class="row justify-content-center" *ngIf="loadData">
+    <div class="col-sm-1">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+</div>
+<div class="row justify-content-center" *ngIf="!loadData">
+    <div class="col-sm-8">
+        <div [ngStyle]="{'color':'blue'}">
+            <h4>Total Exams :- {{ totalExam }}</h4>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center" *ngIf="!loadData">
+    <div class="col-sm-8">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>S.No</th>
+                    <th>Result</th>
+                    <th>Email</th>
+                    <th>Notes</th>
+                    <th>Subject Name</th>
+                    <th>Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of examArr; let i = index;">
+                    <td>{{ i +1 }}</td>
+                    <td> {{ data.Result }} </td>
+                    <td> {{ data.email }} </td>
+                    <td> {{ data.notes }} </td>
+                    <td> {{ data.subjectName }} </td>
+                    <td> {{ data._id }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

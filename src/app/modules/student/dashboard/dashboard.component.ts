@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   public viewStudent(){
     this.userDataService.studentDetail().subscribe((res) => {
-      console.log('res :>> ', res);
+      // console.log('res :>> ', res);
     })
   }
 }

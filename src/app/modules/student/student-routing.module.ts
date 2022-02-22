@@ -1,3 +1,4 @@
+import { ViewExamComponent } from './view-exam/view-exam.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path:'exam-paper',
     component:ExamPaperComponent
+  },
+  {
+    path:'view-exam',
+    component:ViewExamComponent
   },
   {
     path:'**',
