@@ -9,6 +9,7 @@ import { UserLoginComponent } from './modules/users/user-login/user-login.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { ToastrModule } from 'ngx-toastr';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 10000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-    })    
+    }),
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
