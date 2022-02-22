@@ -31,25 +31,54 @@ export class UserDataService implements OnInit {
     });
   }
 
-  public viewStudentData(userID:string): Observable<UserData> {
+  public viewStudentData(userID: string): Observable<UserData> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    const getUrl = this.url + 'dashboard/Teachers/viewStudentDetail?id=' + userID;
-    return this.http.get<UserData>(getUrl,{
+    const getUrl =
+      this.url + 'dashboard/Teachers/viewStudentDetail?id=' + userID;
+    return this.http.get<UserData>(getUrl, {
       headers: headers,
     });
   }
 
-  public viewExam():Observable<any>{
+  public verifiedStudentData():Observable<UserData>{
     const headers = new HttpHeaders().set('access-token',this.token);
-    return this.http.get<any>(this.url + 'dashboard/Teachers/viewExam',{
+    return this.http.get<UserData>(this.url + 'dashboard/Teachers/StudentForExam',{
       headers:headers
     });
   }
 
-  public studentDetail():Observable<UserData>{
+  public viewExam(): Observable<any> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<UserData>(this.url + 'student/getStudentDetail',{
-      headers:headers
+    return this.http.get<any>(this.url + 'dashboard/Teachers/viewExam', {
+      headers: headers,
     });
+  }
+
+  public viewExamData(examId: string): Observable<UserData> {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    const getUrl =
+      this.url + 'dashboard/Teachers/examDetail?id=' + examId;
+    return this.http.get<UserData>(getUrl, {
+      headers: headers,
+    });
+  }
+
+  // public viewExam(){
+  //   const headers = new HttpHeaders().set('access-token', this.token);
+  //   return this.http.get('https://nodejsexamination.herokuapp.com/dashboard/Teachers/examDetail?id=62146ed765f8260015c139dd',{
+  //     headers:headers
+  //   })
+  // }
+
+  public studentDetail(): Observable<UserData> {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.get<UserData>(this.url + 'student/getStudentDetail', {
+      headers: headers,
+    });
+  }
+
+  public viewExamPaper(userId: any): Observable<UserData> {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.get<UserData>(this.url + 'student/examPaper?id=' + userId);
   }
 }

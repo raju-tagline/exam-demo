@@ -1,2 +1,36 @@
 <app-dashboard></app-dashboard>
 <p>verified-student works!</p>
+<div class="row justify-content-center" *ngIf="loadData">
+    <div class="col-sm-1">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+</div>
+<div class="row justify-content-center" *ngIf="!loadData">
+<div class="col-sm-8">
+    <h4 [ngStyle]="{'color':'blue'}">Total Active Student :- {{ activeStudent }}</h4>
+</div>
+</div>
+<div class="row justify-content-center" *ngIf="!loadData">
+    <div class="col-sm-8">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>S.No</th>
+                    <th>Status</th>
+                    <th>Student Name</th>
+                    <th>Id</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr *ngFor="let data of verifieyData; let i = index;">
+                    <td>{{ i +1 }}</td>
+                    <td> {{ data.status }} </td>
+                    <td> {{ data.name }} </td>
+                    <td> {{ data._id }} </td>
+                    <td> {{ data.email }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
