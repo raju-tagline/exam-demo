@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-exam-detail',
   templateUrl: './exam-detail.component.html',
-  styleUrls: ['./exam-detail.component.scss']
+  styleUrls: ['./exam-detail.component.scss'],
 })
 export class ExamDetailComponent implements OnInit {
+  @Input() public question: any;
 
-  constructor() { }
+  constructor(public activeModal:NgbActiveModal) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public close():void{
+    this.activeModal.close();
   }
-
 }
