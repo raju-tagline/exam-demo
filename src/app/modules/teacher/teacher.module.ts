@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ShowStudentDataComponent } from './show-student-data/show-student-data.component';
 import { VerifyStudentComponent } from './verify-student/verify-student.component';
 import { ViewExamComponent } from './view-exam/view-exam.component';
+import { CreateExamComponent } from './create-exam/create-exam.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ViewExamComponent } from './view-exam/view-exam.component';
     DashboardComponent,
     ShowStudentDataComponent,
     VerifyStudentComponent,
-    ViewExamComponent
+    ViewExamComponent,
+    CreateExamComponent
   ],
   imports: [
     CommonModule,
