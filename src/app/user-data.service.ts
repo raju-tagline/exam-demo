@@ -39,9 +39,9 @@ export class UserDataService implements OnInit {
     });
   }
 
-  public viewExam(){
+  public viewExam():Observable<any>{
     const headers = new HttpHeaders().set('access-token',this.token);
-    return this.http.get(this.url + 'dashboard/Teachers/viewExam',{
+    return this.http.get<any>(this.url + 'dashboard/Teachers/viewExam',{
       headers:headers
     });
   }

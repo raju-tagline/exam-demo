@@ -1,2 +1,26 @@
 <app-dashboard></app-dashboard>
-<p>view-exam works!</p>
+<div class="row justify-content-center" *ngIf="loadData">
+    <div class="col-sm-1">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+</div>
+<table class="table" *ngIf="!loadData">
+    <thead class="table-dark">
+        <tr>
+            <th>Subject Name</th>
+            <th>Notes</th>
+            <th>Auther</th>
+            <th>Id</th>
+            <th>V</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let exam of examDetails">
+            <td>{{ exam.subjectName }}</td>
+            <td>{{ exam.notes }}</td>
+            <td>{{ exam.email }}</td>
+            <td>{{ exam._id }}</td>
+            <td>{{ exam._v }}</td>
+        </tr>
+    </tbody>
+</table>
