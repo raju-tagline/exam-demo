@@ -8,6 +8,7 @@ import { VerifyStudentComponent } from './verify-student/verify-student.componen
 import { ViewExamComponent } from './view-exam/view-exam.component';
 import { CreateExamComponent } from './create-exam/create-exam.component';
 import { ExamDetailComponent } from './exam-detail/exam-detail.component';
+import { VerifiedStudentComponent } from './verified-student/verified-student.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ExamDetailComponent } from './exam-detail/exam-detail.component';
     VerifyStudentComponent,
     ViewExamComponent,
     CreateExamComponent,
-    ExamDetailComponent
+    ExamDetailComponent,
+    VerifiedStudentComponent
   ],
   imports: [
     CommonModule,

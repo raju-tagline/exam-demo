@@ -1,3 +1,4 @@
+import { VerifiedStudentComponent } from './verified-student/verified-student.component';
 import { ViewExamComponent } from './view-exam/view-exam.component';
 import { ShowStudentDataComponent } from './show-student-data/show-student-data.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'create-exam',
     component:CreateExamComponent
+  },
+  {
+    path:'verified-student',
+    component:VerifiedStudentComponent
   },
   {
     path:'**',
