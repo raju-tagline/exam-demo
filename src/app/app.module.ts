@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserSignupComponent } from './modules/users/user-signup/user-signup.component';
 import { UserLoginComponent } from './modules/users/user-login/user-login.component';
-import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { ToastrModule } from 'ngx-toastr';
@@ -15,8 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     AppComponent,
     UserSignupComponent,
-    UserLoginComponent,
-    HeaderComponent
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
