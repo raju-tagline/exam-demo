@@ -12,4 +12,8 @@ export class BackComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public goBack():void{
+    history.back();
+  }
+
 }

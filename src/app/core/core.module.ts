@@ -14,7 +14,8 @@ import { BackComponent } from './back/back.component';
     CommonModule
   ],
   exports:[
-    HeaderComponent
+    HeaderComponent,
+    BackComponent
   ]
 })
 export class CoreModule { }
