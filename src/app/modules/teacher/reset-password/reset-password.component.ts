@@ -1,3 +1,4 @@
+import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userDataService:UserDataService) { }
 
   ngOnInit(): void {
+  }
+
+  public reset(event:any):void{
+    console.log('event :>> ', event);
+    this.userDataService.resetPassword(event).subscribe((res) => {
+      console.log('res :>> ', res);
+    });
   }
 
 }

@@ -79,6 +79,19 @@ export class UserDataService implements OnInit {
 
   public viewExamPaper(userId: any): Observable<UserData> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<UserData>(this.url + 'student/examPaper?id=' + userId);
+    return this.http.get<UserData>(this.url + 'student/examPaper?id=' + userId,{
+      headers:headers
+    });
+  }
+
+  public resetPassword(email:any):Observable<UserData>{
+    return this.http.post<UserData>(this.url + 'users/ForgotPassword' , email);
+  }
+
+  public viewStudentAllExam(){
+    const headers = new HttpHeaders().set('access-token',this.token);
+    return this.http.get(this.url + 'student/studentExam',{
+      headers:headers
+    });
   }
 }
