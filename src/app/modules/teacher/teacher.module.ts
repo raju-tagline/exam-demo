@@ -10,6 +10,7 @@ import { ViewExamComponent } from './view-exam/view-exam.component';
 import { CreateExamComponent } from './create-exam/create-exam.component';
 import { ExamDetailComponent } from './exam-detail/exam-detail.component';
 import { VerifiedStudentComponent } from './verified-student/verified-student.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { VerifiedStudentComponent } from './verified-student/verified-student.co
     ViewExamComponent,
     CreateExamComponent,
     ExamDetailComponent,
-    VerifiedStudentComponent
+    VerifiedStudentComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VerifyStudentComponent } from './verify-student/verify-student.component';
 import { CreateExamComponent } from './create-exam/create-exam.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:'verified-student',
     component:VerifiedStudentComponent
+  },
+  {
+    path:'reset-password',
+    component:ResetPasswordComponent
   },
   {
     path:'**',
