@@ -7,27 +7,33 @@ import { RouterModule, Routes } from '@angular/router';
 import { VerifyStudentComponent } from './verify-student/verify-student.component';
 import { CreateExamComponent } from './create-exam/create-exam.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AuthGuard } from 'src/app/auth.guard';
 
 const routes: Routes = [
   {
     path:'dashboard',
-    component:DashboardComponent
+    component:DashboardComponent,
+    canActivate:[AuthGuard],
   },
   {
     path:'student-list',
-    component:ShowStudentDataComponent
+    component:ShowStudentDataComponent,
+    canActivate:[AuthGuard],
   },
   {
     path:'verify-student',
-    component:VerifyStudentComponent
+    component:VerifyStudentComponent,
+    canActivate:[AuthGuard],
   },
   {
     path:'view-exam',
-    component:ViewExamComponent
+    component:ViewExamComponent,
+    canActivate:[AuthGuard],
   },
   {
     path:'create-exam',
-    component:CreateExamComponent
+    component:CreateExamComponent,
+    canActivate:[AuthGuard],
   },
   {
     path:'verified-student',
@@ -35,7 +41,8 @@ const routes: Routes = [
   },
   {
     path:'reset-password',
-    component:ResetPasswordComponent
+    component:ResetPasswordComponent,
+    canActivate:[AuthGuard],
   },
   {
     path:'**',
