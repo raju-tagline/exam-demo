@@ -1,3 +1,4 @@
+import { ShowStudentProfileResponse, Teacher } from './../../../interface/teacher';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verified-student.component.scss'],
 })
 export class VerifiedStudentComponent implements OnInit {
-  public verifieyData = [
+  public verifieyData:Teacher[] = [
     {
       email: '',
       name: '',
@@ -21,7 +22,7 @@ export class VerifiedStudentComponent implements OnInit {
   constructor(private userDataService: UserDataService) {}
 
   ngOnInit(): void {
-    this.userDataService.verifiedStudentData().subscribe((res:any) => {
+    this.userDataService.verifiedStudentData().subscribe((res:ShowStudentProfileResponse) => {
       this.verifieyData = res?.data;
       this.activeStudent = res?.data.length;
       this.loadData = false;

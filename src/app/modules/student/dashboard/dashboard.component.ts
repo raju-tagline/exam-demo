@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  public name:any;
+  public name:string;
 
   constructor(private userDataService: UserDataService) {
     this.name = this.userDataService.name;

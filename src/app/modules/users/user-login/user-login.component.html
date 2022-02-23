@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
     <div class="col-sm-6">
-        <form (ngSubmit)="onSubmit(mysignup)" #mysignup="ngForm">
+        <form (ngSubmit)="onSubmit(mysignup.value)" #mysignup="ngForm">
         <label for="email"><strong>Email</strong></label>
         <div>
             <input type="text" id="email" class="form-control" name="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" #email="ngModel" ngModel>

@@ -1,4 +1,4 @@
-import { StudentData, UserData } from './../../../interface';
+import { ShowStudentDataResponse, ShowStudentData, VerifyStudentDataResponse } from './../../../interface/teacher';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { VerifyStudentComponent } from '../verify-student/verify-student.compone
   styleUrls: ['./show-student-data.component.scss'],
 })
 export class ShowStudentDataComponent implements OnInit {
-  public studentData: StudentData[] = [];
+  public studentData: ShowStudentData[] = [];
   public loadData: boolean = true;
 
   constructor(
@@ -21,17 +21,17 @@ export class ShowStudentDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userDataService.showStudentData().subscribe((data: any) => {
+    this.userDataService.showStudentData().subscribe((data: ShowStudentDataResponse) => {
       this.studentData = data.data;
       this.loadData = false;
     });
   }
 
-  public viewStudentDetails(id:any):void{
-    this.userDataService.viewStudentData(id).subscribe((res:any) => {
+  public viewStudentDetails(id:string):void{
+    this.userDataService.viewStudentData(id).subscribe((res:VerifyStudentDataResponse) => {
       const modelRef = this.modalService.open(VerifyStudentComponent);
-      modelRef.componentInstance.user = res?.data ; 
-      modelRef.componentInstance.student =  res?.data[0].Result ;  
+      modelRef.componentInstance.user = res?.data ;
+      modelRef.componentInstance.student =  res?.data[0].Result ;
     });
   }
 }

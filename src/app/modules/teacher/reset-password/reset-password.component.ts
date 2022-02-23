@@ -1,3 +1,4 @@
+import { Reset } from './../../../interface/teacher';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -12,11 +13,10 @@ export class ResetPasswordComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public reset(event: any): void {
-    const data:any = {email:event.value};
+  public reset(event: string): void {
+    const data:Reset = {email:event};
     this.userDataService.resetPassword(data).subscribe((res)=>{
       this.toastr.success(res?.message);
-      console.log('res :>> ', res);
     })
   }
 }

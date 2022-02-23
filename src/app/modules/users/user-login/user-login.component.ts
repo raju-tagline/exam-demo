@@ -1,4 +1,4 @@
-import { UserData } from './../../../interface';
+import { UserData, UserDataResponse } from './../../../interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -21,8 +21,8 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public onSubmit(event: any): void {
-    const data = event.value;
+  public onSubmit(event: UserData): void {
+    const data = event;
 
     this.userDataService.login(data).subscribe((res: any) => {
       if (res?.statusCode === 200 && res?.data.role === 'teacher') {
