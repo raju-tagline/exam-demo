@@ -40,11 +40,14 @@ export class UserDataService implements OnInit {
     });
   }
 
-  public verifiedStudentData():Observable<UserData>{
-    const headers = new HttpHeaders().set('access-token',this.token);
-    return this.http.get<UserData>(this.url + 'dashboard/Teachers/StudentForExam',{
-      headers:headers
-    });
+  public verifiedStudentData(): Observable<UserData> {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.get<UserData>(
+      this.url + 'dashboard/Teachers/StudentForExam',
+      {
+        headers: headers,
+      }
+    );
   }
 
   public viewExam(): Observable<any> {
@@ -56,8 +59,7 @@ export class UserDataService implements OnInit {
 
   public viewExamData(examId: string): Observable<UserData> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    const getUrl =
-      this.url + 'dashboard/Teachers/examDetail?id=' + examId;
+    const getUrl = this.url + 'dashboard/Teachers/examDetail?id=' + examId;
     return this.http.get<UserData>(getUrl, {
       headers: headers,
     });
@@ -79,19 +81,32 @@ export class UserDataService implements OnInit {
 
   public viewExamPaper(userId: any): Observable<UserData> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<UserData>(this.url + 'student/examPaper?id=' + userId,{
-      headers:headers
+    return this.http.get<UserData>(
+      this.url + 'student/examPaper?id=' + userId,
+      {
+        headers: headers,
+      }
+    );
+  }
+
+  public resetPassword(emailId: string): Observable<any> {
+    return this.http.post<any>(
+      `${this.url}users/ForgotPassword`,
+      emailId
+    );
+  }
+
+  public viewStudentAllExam() {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.get(this.url + 'student/studentExam', {
+      headers: headers,
     });
   }
 
-  public resetPassword(email:any):Observable<UserData>{
-    return this.http.post<UserData>(this.url + 'users/ForgotPassword' , email);
-  }
-
-  public viewStudentAllExam(){
-    const headers = new HttpHeaders().set('access-token',this.token);
-    return this.http.get(this.url + 'student/studentExam',{
-      headers:headers
+  public studentProfile() {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.get(this.url + 'student/getStudentDetail', {
+      headers: headers,
     });
   }
 }
