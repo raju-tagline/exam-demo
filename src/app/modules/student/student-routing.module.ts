@@ -1,3 +1,4 @@
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { ViewExamComponent } from './view-exam/view-exam.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path:'view-exam',
     component:ViewExamComponent,
+    canActivate:[AuthGuard],
+  },
+  {
+    path:'profile',
+    component:StudentProfileComponent,
     canActivate:[AuthGuard],
   },
   {
