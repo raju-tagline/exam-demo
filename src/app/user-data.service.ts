@@ -1,18 +1,29 @@
-import { IStudentDataResponse, IVerifyStudentDataResponse, IShowStudentProfileResponse, IResetPassword, IViewStudentExamResponse, IViewExamResponse, IResetPasswordResponse } from './interface/teacher.interface';
+import {
+  IStudentDataResponse,
+  IVerifyStudentDataResponse,
+  IShowStudentProfileResponse,
+  IResetPassword,
+  IViewStudentExamResponse,
+  IViewExamResponse,
+  IResetPasswordResponse,
+} from './interface/teacher.interface';
 import { IUserData, IUserDataResponse } from './interface/user.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { IStudentProfileResponse, IStudentExamResponse } from './interface/student.interface';
+import {
+  IStudentProfileResponse,
+  IStudentExamResponse,
+} from './interface/student.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService implements OnInit {
   private url: string = environment.url;
-  public token: string  = localStorage.getItem('Token') || '';
-  public name: string  = localStorage.getItem('name') || '';
+  public token: string = localStorage.getItem('Token') || '';
+  public name: string = localStorage.getItem('name') || '';
 
   constructor(private http: HttpClient) {}
 
@@ -28,12 +39,17 @@ export class UserDataService implements OnInit {
 
   public showStudentData(): Observable<IStudentDataResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<IStudentDataResponse>(this.url + 'dashboard/Teachers', {
-      headers: headers,
-    });
+    return this.http.get<IStudentDataResponse>(
+      this.url + 'dashboard/Teachers',
+      {
+        headers: headers,
+      }
+    );
   }
 
-  public viewStudentData(userID: string): Observable<IVerifyStudentDataResponse> {
+  public viewStudentData(
+    userID: string
+  ): Observable<IVerifyStudentDataResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
     const getUrl =
       this.url + 'dashboard/Teachers/viewStudentDetail?id=' + userID;
@@ -54,9 +70,12 @@ export class UserDataService implements OnInit {
 
   public viewExam(): Observable<IViewExamResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<IViewExamResponse>(this.url + 'dashboard/Teachers/viewExam', {
-      headers: headers,
-    });
+    return this.http.get<IViewExamResponse>(
+      this.url + 'dashboard/Teachers/viewExam',
+      {
+        headers: headers,
+      }
+    );
   }
 
   public viewExamData(examId: string): Observable<IViewStudentExamResponse> {
@@ -69,9 +88,12 @@ export class UserDataService implements OnInit {
 
   public studentDetail(): Observable<IStudentProfileResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<IStudentProfileResponse>(this.url + 'student/getStudentDetail', {
-      headers: headers,
-    });
+    return this.http.get<IStudentProfileResponse>(
+      this.url + 'student/getStudentDetail',
+      {
+        headers: headers,
+      }
+    );
   }
 
   public viewExamPaper(userId: string): Observable<IUserData> {
@@ -84,24 +106,32 @@ export class UserDataService implements OnInit {
     );
   }
 
-  public resetPassword(emailId: IResetPassword): Observable<IResetPasswordResponse> {
+  public resetPassword(
+    emailId: IResetPassword
+  ): Observable<IResetPasswordResponse> {
     return this.http.post<IResetPasswordResponse>(
       `${this.url}users/ForgotPassword`,
       emailId
     );
   }
 
-  public viewStudentAllExam() :Observable<IStudentExamResponse> {
+  public viewStudentAllExam(): Observable<IStudentExamResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<IStudentExamResponse>(this.url + 'student/studentExam', {
-      headers: headers,
-    });
+    return this.http.get<IStudentExamResponse>(
+      this.url + 'student/studentExam',
+      {
+        headers: headers,
+      }
+    );
   }
 
-  public studentProfile() :Observable<IStudentProfileResponse> {
+  public studentProfile(): Observable<IStudentProfileResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<IStudentProfileResponse>(this.url + 'student/getStudentDetail', {
-      headers: headers,
-    });
+    return this.http.get<IStudentProfileResponse>(
+      this.url + 'student/getStudentDetail',
+      {
+        headers: headers,
+      }
+    );
   }
 }

@@ -25,16 +25,18 @@ export class ViewExamComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userDataService.viewExam().subscribe((res: IViewExamResponse) => {
-      this.examDetails = res.data;
-      this.loadData = false;
-    });
+    this.userDataService
+      .viewExam()
+      .subscribe((res: IViewExamResponse): void => {
+        this.examDetails = res.data;
+        this.loadData = false;
+      });
   }
 
   public viewExamDetails(id: string) {
     this.userDataService
       .viewExamData(id)
-      .subscribe((res: IViewStudentExamResponse) => {
+      .subscribe((res: IViewStudentExamResponse): void => {
         const modelRef = this.modalService.open(ExamDetailComponent);
         modelRef.componentInstance.question = res?.data.questions;
       });

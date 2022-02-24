@@ -1,8 +1,16 @@
-import { IStudentDataResponse, IShowStudentData, IVerifyStudentDataResponse } from '../../../interface/teacher.interface';
+import {
+  IStudentDataResponse,
+  IShowStudentData,
+  IVerifyStudentDataResponse,
+} from '../../../interface/teacher.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbModal,
+  ModalDismissReasons,
+  NgbActiveModal,
+} from '@ng-bootstrap/ng-bootstrap';
 import { VerifyStudentComponent } from '../verify-student/verify-student.component';
 
 @Component({
@@ -21,17 +29,21 @@ export class ShowStudentDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userDataService.showStudentData().subscribe((data: IStudentDataResponse) => {
-      this.studentData = data.data;
-      this.loadData = false;
-    });
+    this.userDataService
+      .showStudentData()
+      .subscribe((data: IStudentDataResponse): void => {
+        this.studentData = data.data;
+        this.loadData = false;
+      });
   }
 
-  public viewStudentDetails(id:string):void{
-    this.userDataService.viewStudentData(id).subscribe((res:IVerifyStudentDataResponse) => {
-      const modelRef = this.modalService.open(VerifyStudentComponent);
-      modelRef.componentInstance.user = res?.data ;
-      modelRef.componentInstance.student =  res?.data[0].Result ;
-    });
+  public viewStudentDetails(id: string): void {
+    this.userDataService
+      .viewStudentData(id)
+      .subscribe((res: IVerifyStudentDataResponse) => {
+        const modelRef = this.modalService.open(VerifyStudentComponent);
+        modelRef.componentInstance.user = res?.data;
+        modelRef.componentInstance.student = res?.data[0].Result;
+      });
   }
 }

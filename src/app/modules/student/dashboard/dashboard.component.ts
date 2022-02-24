@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public viewStudent() {
+  public viewStudent():void {
     this.userDataService
       .studentDetail()
       .subscribe((res: IStudentProfileResponse) => {});

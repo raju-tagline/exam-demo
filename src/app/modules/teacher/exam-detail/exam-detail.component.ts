@@ -1,6 +1,6 @@
 import { IQuestions } from '../../../interface/teacher.interface';
 import { Component, Input, OnInit } from '@angular/core';
-import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-exam-detail',
@@ -10,11 +10,11 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class ExamDetailComponent implements OnInit {
   @Input() public question!: IQuestions[];
 
-  constructor(public activeModal:NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {}
 
-  public close():void{
+  public close(): void {
     this.activeModal.close();
   }
 }

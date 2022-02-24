@@ -15,9 +15,11 @@ export class StudentProfileComponent implements OnInit {
   constructor(private userDataService: UserDataService) {}
 
   ngOnInit(): void {
-    this.userDataService.studentProfile().subscribe((res: IStudentProfileResponse) => {
-      this.studentArr.push(res.data);
-      this.loadData = false;
-    });
+    this.userDataService
+      .studentProfile()
+      .subscribe((res: IStudentProfileResponse): void => {
+        this.studentArr.push(res.data);
+        this.loadData = false;
+      });
   }
 }

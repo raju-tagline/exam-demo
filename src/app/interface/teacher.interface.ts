@@ -90,8 +90,8 @@ export interface IResetPassword {
 
 export interface IResetPasswordResponse {
   email: string;
-  value?:string;
-  message:string
+  value?: string;
+  message: string;
 }
 
 export interface IQuestions {

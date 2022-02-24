@@ -1,4 +1,7 @@
-import { IUserData, IUserDataResponse } from '../../../interface/user.interface';
+import {
+  IUserData,
+  IUserDataResponse,
+} from '../../../interface/user.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -21,20 +24,22 @@ export class UserLoginComponent implements OnInit {
   public onSubmit(event: IUserData): void {
     const data = event;
 
-    this.userDataService.login(data).subscribe((res: IUserDataResponse) => {
-      if (res?.statusCode === 200 && res?.data.role === 'teacher') {
-        localStorage.setItem('Token', res?.data.token);
-        localStorage.setItem('name', res?.data.name);
-        this.toastr.success(res?.message);
-        this.router.navigate(['/teacher/dashboard']);
-      } else if (res?.statusCode === 200 && res?.data.role === 'student') {
-        localStorage.setItem('Token', res?.data.token);
-        localStorage.setItem('name', res?.data.name);
-        this.toastr.success(res?.message);
-        this.router.navigate(['/student/dashboard']);
-      } else {
-        this.toastr.error(res?.message);
-      }
-    });
+    this.userDataService
+      .login(data)
+      .subscribe((res: IUserDataResponse): void => {
+        if (res?.statusCode === 200 && res?.data.role === 'teacher') {
+          localStorage.setItem('Token', res?.data.token);
+          localStorage.setItem('name', res?.data.name);
+          this.toastr.success(res?.message);
+          this.router.navigate(['/teacher/dashboard']);
+        } else if (res?.statusCode === 200 && res?.data.role === 'student') {
+          localStorage.setItem('Token', res?.data.token);
+          localStorage.setItem('name', res?.data.name);
+          this.toastr.success(res?.message);
+          this.router.navigate(['/student/dashboard']);
+        } else {
+          this.toastr.error(res?.message);
+        }
+      });
   }
 }

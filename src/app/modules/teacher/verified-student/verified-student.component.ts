@@ -1,4 +1,7 @@
-import { IShowStudentProfileResponse, ITeacher } from '../../../interface/teacher.interface';
+import {
+  IShowStudentProfileResponse,
+  ITeacher,
+} from '../../../interface/teacher.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verified-student.component.scss'],
 })
 export class VerifiedStudentComponent implements OnInit {
-  public verifieyData:ITeacher[] = [
+  public verifieyData: ITeacher[] = [
     {
       email: '',
       name: '',
@@ -16,16 +19,18 @@ export class VerifiedStudentComponent implements OnInit {
       _id: '',
     },
   ];
-  public loadData:boolean = true;
-  public activeStudent!:number;
+  public loadData: boolean = true;
+  public activeStudent!: number;
 
   constructor(private userDataService: UserDataService) {}
 
   ngOnInit(): void {
-    this.userDataService.verifiedStudentData().subscribe((res:IShowStudentProfileResponse) => {
-      this.verifieyData = res?.data;
-      this.activeStudent = res?.data.length;
-      this.loadData = false;
-    });
+    this.userDataService
+      .verifiedStudentData()
+      .subscribe((res: IShowStudentProfileResponse): void => {
+        this.verifieyData = res?.data;
+        this.activeStudent = res?.data.length;
+        this.loadData = false;
+      });
   }
 }
