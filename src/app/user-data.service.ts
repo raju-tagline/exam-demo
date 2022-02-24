@@ -16,6 +16,7 @@ import {
   IStudentProfileResponse,
   IStudentExamResponse,
   IStudentExamPaperResponse,
+  IEditStudentResponse,
 } from './interface/student.interface';
 
 @Injectable({
@@ -147,8 +148,11 @@ export class UserDataService implements OnInit {
     );
   }
 
-  public updateStudentProfile() {
-    return this.http.put(`${this.url}` + 'student/studentProfile', this.token);
+  public updateStudentProfile(userId:string) :Observable<IEditStudentResponse>{
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.put<IEditStudentResponse>(`${this.url}student/studentProfile`,userId,{
+      headers:headers
+    });
   }
 
   public LogOut(): void {

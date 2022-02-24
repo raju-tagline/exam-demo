@@ -37,3 +37,20 @@ export interface IStudentExamPaperResponse {
   message: string;
   statusCode: number;
 }
+
+export interface IEditStudent {
+  email: string;
+  id: string;
+  name: string;
+}
+
+export interface IEditStudentResponse {
+  data: IEditStudent;
+  message: string;
+  statusCode: number;
+}
+
+export interface IUserId{
+  name?:string | null
+}
+

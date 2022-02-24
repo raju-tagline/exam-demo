@@ -7,16 +7,19 @@
 
 <div class="row justify-content-center mt-5">
     <div class="col-sm-2">
-        <div class="card" style="width: 20rem;" *ngIf="!loadData">
+        <div class="card" style="width: 22rem;" *ngIf="!loadData">
             <img src="/assets/student-pic.png">
             <div *ngFor="let s of studentArr">
-                <div class="card-body" >
-                    <h4 class="card-title text-success">{{ s.name }}</h4>
+                <div class="card-body">
+                    <div class="h4">Name : <span class="card-title text-success">{{ s.name }}</span></div>
                 </div>
-                <div class="card-body text-primary" >
-                    <p class="card-item" >{{ s.role }}</p>
-                    <p class="card-item" >{{ s.email }}</p>
-                    <p class="card-item" >{{ s._id }}</p>
+                <div class="card-body text-primary">
+                    <div class="h5"> <span class="card-item text-primary">{{ s.role }}</span></div>
+                    <div>Email : <span class="card-item text-primary">{{ s.email }}</span></div>
+                    <div>SId : <span class="card-item text-primary">{{ s._id }}</span></div>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-success" (click)="editMode(s.name)">Edit</button>
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExamPaperComponent } from './exam-paper/exam-paper.component';
 import { AuthGuard } from 'src/app/auth.guard';
+import { EditStudentProfileComponent } from './edit-student-profile/edit-student-profile.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,16 @@ const routes: Routes = [
   {
     path: 'student-exam',
     component: StudentExamPaperComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-profile',
+    component: EditStudentProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-profile/:id',
+    component: EditStudentProfileComponent,
     canActivate: [AuthGuard],
   },
   {

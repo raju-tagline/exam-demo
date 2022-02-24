@@ -9,6 +9,8 @@ import { ViewExamComponent } from './view-exam/view-exam.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { StudentExamPaperComponent } from './student-exam-paper/student-exam-paper.component';
+import { EditStudentProfileComponent } from './edit-student-profile/edit-student-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import { StudentExamPaperComponent } from './student-exam-paper/student-exam-pap
     ViewExamComponent,
     StudentProfileComponent,
     ForgetPasswordComponent,
-    StudentExamPaperComponent
+    StudentExamPaperComponent,
+    EditStudentProfileComponent
   ],
   imports: [
     CommonModule,
     StudentRoutingModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule
   ]
 })
 export class StudentModule { }

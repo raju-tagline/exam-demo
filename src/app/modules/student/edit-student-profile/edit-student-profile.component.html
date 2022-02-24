@@ -1,0 +1,29 @@
+<app-dashboard></app-dashboard>
+<div class="row justify-content-center" *ngIf="loadData">
+    <div class="col-sm-1">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5" *ngIf="!loadData">
+    <div class="col-sm-2">
+        <form action="" [formGroup]="reactiveForm">
+            <div class="card" style="width: 20rem;">
+                <img src="/assets/student-pic.png">
+                <div class="card-body">
+                    <div class="h4"><span class="card-title text-success"><input type="text" formControlName="name" id="name"></span></div>
+                </div>
+                <div *ngFor="let s of studentArr">
+                    <div class="card-body">
+                        <div class="h5">{{ student }}</div>
+                        <div>Email : <span class="card-item text-primary">{{ s.email }}</span></div>
+                        <div>SId : <span class="card-item text-primary">{{ s._id }}</span></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-danger" (click)="save()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
