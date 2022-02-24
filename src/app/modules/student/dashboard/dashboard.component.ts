@@ -1,4 +1,4 @@
-import { StudentProfileResponse } from './../../../interface/student';
+import { IStudentProfileResponse } from './../../../interface/student';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -20,6 +20,6 @@ export class DashboardComponent implements OnInit {
   public viewStudent() {
     this.userDataService
       .studentDetail()
-      .subscribe((res: StudentProfileResponse) => {});
+      .subscribe((res: IStudentProfileResponse) => {});
   }
 }

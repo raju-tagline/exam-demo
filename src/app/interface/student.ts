@@ -1,4 +1,4 @@
-export interface StudentExam {
+export interface IStudentExam {
   _id: string;
   notes: string;
   subjectName: string;
@@ -6,22 +6,22 @@ export interface StudentExam {
   Result: string;
 }
 
-export interface StudentExamResponse {
-  data: StudentExam[];
+export interface IStudentExamResponse {
+  data: IStudentExam[];
   message: string;
   statusCode: number;
   userId: string;
 }
 
-export interface StudentProfile {
+export interface IStudentProfile {
   _id: string;
   name: string;
   email: string;
   role: string;
 }
 
-export interface StudentProfileResponse {
-  data: StudentProfile;
+export interface IStudentProfileResponse {
+  data: IStudentProfile;
   message: string;
   statusCode: number;
 }

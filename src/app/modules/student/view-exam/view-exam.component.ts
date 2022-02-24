@@ -1,4 +1,4 @@
-import { StudentExam, StudentExamResponse } from './../../../interface/student';
+import { IStudentExam, IStudentExamResponse } from './../../../interface/student';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-exam.component.scss'],
 })
 export class ViewExamComponent implements OnInit {
-  public examArr:StudentExam[] = [
+  public examArr:IStudentExam[] = [
     { 
       Result:'', 
       email: '', 
@@ -23,7 +23,7 @@ export class ViewExamComponent implements OnInit {
   constructor(private userDataService: UserDataService) {}
 
   ngOnInit(): void {
-    this.userDataService.viewStudentAllExam().subscribe((res: StudentExamResponse) => {
+    this.userDataService.viewStudentAllExam().subscribe((res: IStudentExamResponse) => {
       this.examArr = res?.data;
       this.totalExam = res?.data.length;
       this.loadData = false;

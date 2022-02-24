@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { StudentProfileResponse, StudentExamResponse } from './interface/student';
+import { IStudentProfileResponse, IStudentExamResponse } from './interface/student';
 
 @Injectable({
   providedIn: 'root',
@@ -67,9 +67,9 @@ export class UserDataService implements OnInit {
     });
   }
 
-  public studentDetail(): Observable<StudentProfileResponse> {
+  public studentDetail(): Observable<IStudentProfileResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<StudentProfileResponse>(this.url + 'student/getStudentDetail', {
+    return this.http.get<IStudentProfileResponse>(this.url + 'student/getStudentDetail', {
       headers: headers,
     });
   }
@@ -91,16 +91,16 @@ export class UserDataService implements OnInit {
     );
   }
 
-  public viewStudentAllExam() :Observable<StudentExamResponse> {
+  public viewStudentAllExam() :Observable<IStudentExamResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<StudentExamResponse>(this.url + 'student/studentExam', {
+    return this.http.get<IStudentExamResponse>(this.url + 'student/studentExam', {
       headers: headers,
     });
   }
 
-  public studentProfile() :Observable<StudentProfileResponse> {
+  public studentProfile() :Observable<IStudentProfileResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.get<StudentProfileResponse>(this.url + 'student/getStudentDetail', {
+    return this.http.get<IStudentProfileResponse>(this.url + 'student/getStudentDetail', {
       headers: headers,
     });
   }
