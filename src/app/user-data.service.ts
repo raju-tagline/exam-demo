@@ -24,6 +24,7 @@ export class UserDataService implements OnInit {
   private url: string = environment.url;
   public token: string = localStorage.getItem('Token') || '';
   public name: string = localStorage.getItem('name') || '';
+  public role: string = localStorage.getItem('role') || '';
 
   constructor(private http: HttpClient) {}
 
@@ -133,5 +134,11 @@ export class UserDataService implements OnInit {
         headers: headers,
       }
     );
+  }
+
+  public LogOut():void{
+    localStorage.removeItem('Token');
+    localStorage.removeItem('name');
+    localStorage.removeItem('role');
   }
 }
