@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  public tokenValue: boolean = true ;
+  public tokenValue: boolean = true;
   public token!: string;
   public role!: string;
 
@@ -23,13 +23,10 @@ export class HeaderComponent implements OnInit {
     if (this.token && this.role === 'teacher') {
       this.tokenValue = false;
       this.router.navigate(['teacher/dashboard']);
-      console.log('teacher clicked!!');
     } else if (this.token && this.role === 'student') {
       this.tokenValue = false;
       this.router.navigate(['student/dashboard']);
-      console.log('student clicked!!');
     } else {
-      console.log("At login page");
     }
   }
 
