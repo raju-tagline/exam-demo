@@ -22,7 +22,8 @@ import { StudentExamPaperComponent } from './student-exam-paper/student-exam-pap
   ],
   imports: [
     CommonModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    CoreModule
   ]
 })
 export class StudentModule { }
