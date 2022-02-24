@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExamPaperComponent } from './exam-paper/exam-paper.component';
 import { ViewExamComponent } from './view-exam/view-exam.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     DashboardComponent,
     ExamPaperComponent,
     ViewExamComponent,
-    StudentProfileComponent
+    StudentProfileComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     CommonModule,

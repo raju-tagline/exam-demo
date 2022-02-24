@@ -1,3 +1,4 @@
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { ViewExamComponent } from './view-exam/view-exam.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -8,33 +9,38 @@ import { AuthGuard } from 'src/app/auth.guard';
 
 const routes: Routes = [
   {
-    path:'dashboard',
-    component:DashboardComponent,
-    canActivate:[AuthGuard],
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'exam-paper',
-    component:ExamPaperComponent,
-    canActivate:[AuthGuard],
+    path: 'exam-paper',
+    component: ExamPaperComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'view-exam',
-    component:ViewExamComponent,
-    canActivate:[AuthGuard],
+    path: 'view-exam',
+    component: ViewExamComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'profile',
-    component:StudentProfileComponent,
-    canActivate:[AuthGuard],
+    path: 'profile',
+    component: StudentProfileComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'**',
-    redirectTo:'dashboard'
+    path: 'reset-password',
+    component: ForgetPasswordComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class StudentRoutingModule { }
+export class StudentRoutingModule {}
