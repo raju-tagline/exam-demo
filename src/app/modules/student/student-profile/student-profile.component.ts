@@ -1,7 +1,7 @@
-import { IStudentProfileResponse } from './../../../interface/student';
+import { IStudentProfileResponse } from '../../../interface/student.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
-import { IStudentProfile } from 'src/app/interface/student';
+import { IStudentProfile } from 'src/app/interface/student.interface';
 
 @Component({
   selector: 'app-student-profile',

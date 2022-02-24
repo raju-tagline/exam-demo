@@ -1,4 +1,4 @@
-import { IStudentExam, IStudentExamResponse } from './../../../interface/student';
+import { IStudentExam, IStudentExamResponse } from '../../../interface/student.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 

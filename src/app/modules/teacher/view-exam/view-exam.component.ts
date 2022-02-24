@@ -2,7 +2,7 @@ import {
   IViewStudentExamResponse,
   IViewExamResponse,
   IViewExam,
-} from './../../../interface/teacher';
+} from '../../../interface/teacher.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

@@ -1,10 +1,10 @@
-import { IStudentDataResponse, IVerifyStudentDataResponse, IShowStudentProfileResponse, IResetPassword, IViewStudentExamResponse, IViewExamResponse, IResetPasswordResponse } from './interface/teacher';
-import { IUserData, IUserDataResponse } from './interface';
+import { IStudentDataResponse, IVerifyStudentDataResponse, IShowStudentProfileResponse, IResetPassword, IViewStudentExamResponse, IViewExamResponse, IResetPasswordResponse } from './interface/teacher.interface';
+import { IUserData, IUserDataResponse } from './interface/user.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { IStudentProfileResponse, IStudentExamResponse } from './interface/student';
+import { IStudentProfileResponse, IStudentExamResponse } from './interface/student.interface';
 
 @Injectable({
   providedIn: 'root',

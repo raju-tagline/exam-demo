@@ -1,4 +1,4 @@
-import { IShowStudentProfileResponse, ITeacher } from './../../../interface/teacher';
+import { IShowStudentProfileResponse, ITeacher } from '../../../interface/teacher.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 

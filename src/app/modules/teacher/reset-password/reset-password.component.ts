@@ -1,4 +1,4 @@
-import { IResetPassword, IResetPasswordResponse } from './../../../interface/teacher';
+import { IResetPassword, IResetPasswordResponse } from '../../../interface/teacher.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
