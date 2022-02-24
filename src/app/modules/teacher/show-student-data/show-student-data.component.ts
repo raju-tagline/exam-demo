@@ -40,7 +40,7 @@ export class ShowStudentDataComponent implements OnInit {
   public viewStudentDetails(id: string): void {
     this.userDataService
       .viewStudentData(id)
-      .subscribe((res: IVerifyStudentDataResponse) => {
+      .subscribe((res: IVerifyStudentDataResponse): void => {
         const modelRef = this.modalService.open(VerifyStudentComponent);
         modelRef.componentInstance.user = res?.data;
         modelRef.componentInstance.student = res?.data[0].Result;

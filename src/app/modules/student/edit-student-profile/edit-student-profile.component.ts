@@ -36,17 +36,17 @@ export class EditStudentProfileComponent implements OnInit, AfterViewInit {
     this.reactiveForm = new FormGroup({
       name: new FormControl(),
     });
-    this.userDataService.studentProfile().subscribe((res) => {
+    this.userDataService.studentProfile().subscribe((res): void => {
       this.studentArr.push(res?.data);
       this.loadData = false;
     });
   }
   public save() {
     const userName: string | any = { name: this.reactiveForm.value.name };
-    console.log(typeof(userName));
+    console.log(typeof userName);
     this.userDataService
       .updateStudentProfile(userName)
-      .subscribe((res: IEditStudentResponse) => {
+      .subscribe((res: IEditStudentResponse): void => {
         localStorage.setItem('name', this.reactiveForm.value.name);
         this.router.navigate(['/student/profile']);
       });
