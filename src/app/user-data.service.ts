@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
 import {
   IStudentProfileResponse,
   IStudentExamResponse,
+  IStudentExamPaperResponse,
 } from './interface/student.interface';
 
 @Injectable({
@@ -136,7 +137,21 @@ export class UserDataService implements OnInit {
     );
   }
 
-  public LogOut():void{
+  public studentExamPaper(examId:string): Observable<IStudentExamPaperResponse> {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.get<IStudentExamPaperResponse>(
+      `${this.url}student/examPaper?id=` +examId ,
+      {
+        headers: headers,
+      }
+    );
+  }
+
+  public updateStudentProfile() {
+    return this.http.put(this.url + 'student/studentProfile', this.token);
+  }
+
+  public LogOut(): void {
     localStorage.removeItem('Token');
     localStorage.removeItem('name');
     localStorage.removeItem('role');

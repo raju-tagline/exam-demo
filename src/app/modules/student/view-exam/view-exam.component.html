@@ -17,21 +17,23 @@
             <thead class="table-dark">
                 <tr>
                     <th>S.No</th>
-                    <th>Result</th>
                     <th>Email</th>
                     <th>Notes</th>
                     <th>Subject Name</th>
                     <th>Id</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let data of examArr; let i = index;">
                     <td>{{ i +1 }}</td>
-                    <td> {{ data.Result }} </td>
                     <td> {{ data.email }} </td>
                     <td> {{ data.notes }} </td>
                     <td> {{ data.subjectName }} </td>
                     <td> {{ data._id }} </td>
+                    <td>
+                        <button class="btn btn-warning" (click)="viewExampaper(data._id)">View</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

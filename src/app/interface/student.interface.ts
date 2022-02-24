@@ -25,3 +25,15 @@ export interface IStudentProfileResponse {
   message: string;
   statusCode: number;
 }
+
+export interface IStudentExamPaper {
+  options: string;
+  question: string;
+  _id: string;
+}
+
+export interface IStudentExamPaperResponse {
+  data: IStudentExamPaper[];
+  message: string;
+  statusCode: number;
+}

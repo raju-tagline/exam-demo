@@ -4,6 +4,8 @@ import {
 } from '../../../interface/student.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { StudentExamPaperComponent } from '../student-exam-paper/student-exam-paper.component';
 
 @Component({
   selector: 'app-view-exam',
@@ -23,7 +25,10 @@ export class ViewExamComponent implements OnInit {
   public loadData: boolean = true;
   public totalExam!: number;
 
-  constructor(private userDataService: UserDataService) {}
+  constructor(
+    private userDataService: UserDataService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.userDataService
@@ -33,5 +38,10 @@ export class ViewExamComponent implements OnInit {
         this.totalExam = res?.data.length;
         this.loadData = false;
       });
+  }
+
+  public viewExampaper(event: string) {
+    const modalRef = this.modalService.open(StudentExamPaperComponent,{size : 'lg'});
+    modalRef.componentInstance.exampaperId = event;
   }
 }
