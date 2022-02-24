@@ -1,3 +1,4 @@
+import { StudentExamPaperComponent } from './student-exam-paper/student-exam-paper.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { ViewExamComponent } from './view-exam/view-exam.component';
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'reset-password',
     component: ForgetPasswordComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'student-exam',
+    component: StudentExamPaperComponent,
     canActivate: [AuthGuard],
   },
   {
