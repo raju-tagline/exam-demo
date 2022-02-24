@@ -1,17 +1,17 @@
-export interface Teacher {
+export interface ITeacher {
   status: string;
   _id: string;
   name: string;
   email: string;
 }
-export interface VerifyStudentData {
+export interface IVerifyStudentData {
   _id: string;
   name: string;
   email: string;
-  Result: Result[];
+  Result: IResult[];
 }
 
-export interface Result {
+export interface IResult {
   _id: string;
   rank: number;
   subjectName: string;
@@ -21,13 +21,13 @@ export interface Result {
   __v: string;
 }
 
-export interface VerifyStudentDataResponse {
-  data: VerifyStudentData[];
+export interface IVerifyStudentDataResponse {
+  data: IVerifyStudentData[];
   statusCode: number;
   message: string;
 }
 
-export interface ViewExam {
+export interface IViewExam {
   notes: string;
   _id: string;
   subjectName: string;
@@ -35,41 +35,41 @@ export interface ViewExam {
   _v: string;
 }
 
-export interface ViewExamResponse {
-  data: ViewExam[];
+export interface IViewExamResponse {
+  data: IViewExam[];
   message: string;
   statusCode: number;
   notes: string;
 }
 
-export interface StudentData {
+export interface IStudentData {
   name: string;
   email: string;
   password: string;
   _id: string;
 }
 
-export interface ShowStudentData {
+export interface IShowStudentData {
   name: string;
   email: string;
   password: string;
   _id: string;
   status: string;
-  role: Role;
+  role: string;
 }
-export interface Role {
+export interface IRole {
   teacher: string;
   student: string;
 }
 
-export interface ShowStudentDataResponse {
+export interface IStudentDataResponse {
   count: number;
-  data: ShowStudentData[];
+  data: IShowStudentData[];
   message: string;
   statusCode: number;
 }
 
-export interface ShowStudentProfile {
+export interface IShowStudentProfile {
   name: string;
   email: string;
   password: string;
@@ -77,26 +77,32 @@ export interface ShowStudentProfile {
   status: string;
 }
 
-export interface ShowStudentProfileResponse {
-  data: ShowStudentProfile[];
+export interface IShowStudentProfileResponse {
+  data: IShowStudentProfile[];
   message: string;
   statusCode: number;
 }
 
-export interface Reset {
+export interface IResetPassword {
   email: string;
   value?: string;
 }
 
-export interface Questions {
+export interface IResetPasswordResponse {
+  email: string;
+  value?:string;
+  message:string
+}
+
+export interface IQuestions {
   answer: string;
   options: string[];
   question: string;
   questions: string;
 }
 
-export interface ViewStudentExamResponse {
-  data: Questions[];
+export interface IViewStudentExamResponse {
+  data: IQuestions;
   message: string;
   statusCode: number;
 }

@@ -6,11 +6,11 @@ export interface StudentExam {
   Result: string;
 }
 
-export interface StudentExamResponse{
-  data:StudentExam[];
-  message:string;
-  statusCode:number;
-  userId:string;
+export interface StudentExamResponse {
+  data: StudentExam[];
+  message: string;
+  statusCode: number;
+  userId: string;
 }
 
 export interface StudentProfile {
@@ -21,7 +21,7 @@ export interface StudentProfile {
 }
 
 export interface StudentProfileResponse {
-  data:StudentProfile;
-  message:string;
-  statusCode:number;
+  data: StudentProfile;
+  message: string;
+  statusCode: number;
 }

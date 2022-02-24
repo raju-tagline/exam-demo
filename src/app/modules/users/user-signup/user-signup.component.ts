@@ -1,4 +1,4 @@
-import { UserData } from './../../../interface';
+import { IUserDataResponse } from './../../../interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -13,7 +13,6 @@ import {
   templateUrl: './user-signup.component.html',
   styleUrls: ['./user-signup.component.scss'],
 })
-
 export class UserSignupComponent implements OnInit {
   public myRegistrationForm!: FormGroup;
   public submit: boolean = false;
@@ -41,16 +40,10 @@ export class UserSignupComponent implements OnInit {
     this.submit = true;
     const data = this.myRegistrationForm.value;
 
-    this.userDataService.signUp(data).subscribe((res: any) => {
-      console.log('res :>> ', res);
-      alert(res.message);
-    });
-
-    console.log('Sign up success!!');
-    console.log(
-      'this.myRegistrationForm.value :>> ',
-      this.myRegistrationForm.value
-    );
+    this.userDataService
+      .signUp(data)
+      .subscribe((res: IUserDataResponse): void => {
+        alert(res.message);
+      });
   }
-
 }

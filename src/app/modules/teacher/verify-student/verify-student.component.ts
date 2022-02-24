@@ -1,3 +1,4 @@
+import { IVerifyStudentData, IResult } from './../../../interface/teacher';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -7,8 +8,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./verify-student.component.scss']
 })
 export class VerifyStudentComponent implements OnInit {
-  @Input() public user: any;
-  @Input() public student: any;
+  @Input() public user!: IVerifyStudentData[];
+  @Input() public student!: IResult[];
 
   constructor(public activeModal:NgbActiveModal) { }
 

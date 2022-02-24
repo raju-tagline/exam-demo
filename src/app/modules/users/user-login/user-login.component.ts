@@ -1,4 +1,4 @@
-import { UserData, UserDataResponse } from './../../../interface';
+import { IUserData, IUserDataResponse } from './../../../interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -10,36 +10,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login.component.scss'],
 })
 export class UserLoginComponent implements OnInit {
-  public token!:any;
-  public name!:any;
-  
   constructor(
-    private userDataService: UserDataService, 
+    private userDataService: UserDataService,
     private toastr: ToastrService,
-    private router:Router
-    ) {}
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
-  public onSubmit(event: UserData): void {
+  public onSubmit(event: IUserData): void {
     const data = event;
 
-    this.userDataService.login(data).subscribe((res: any) => {
+    this.userDataService.login(data).subscribe((res: IUserDataResponse) => {
       if (res?.statusCode === 200 && res?.data.role === 'teacher') {
-        console.log("teacher login");
-        console.log('res.name :>> ', res?.data.name);
-        this.token = localStorage.setItem('Token',res?.data.token);
-        this.name = localStorage.setItem('name',res?.data.name);
+        localStorage.setItem('Token', res?.data.token);
+        localStorage.setItem('name', res?.data.name);
         this.toastr.success(res?.message);
         this.router.navigate(['/teacher/dashboard']);
-      } else if(res?.statusCode === 200 && res?.data.role === 'student'){
-        console.log("Student login");
-        console.log('res.name :>> ', res?.data.name);
-        this.token = localStorage.setItem('Token',res?.data.token);
-        this.name = localStorage.setItem('name',res?.data.name);
+      } else if (res?.statusCode === 200 && res?.data.role === 'student') {
+        localStorage.setItem('Token', res?.data.token);
+        localStorage.setItem('name', res?.data.name);
         this.toastr.success(res?.message);
-        this.router.navigate(['/student/dashboard'])        
-      } else{
+        this.router.navigate(['/student/dashboard']);
+      } else {
         this.toastr.error(res?.message);
       }
     });
