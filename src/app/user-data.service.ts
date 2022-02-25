@@ -17,6 +17,8 @@ import {
   IStudentExamResponse,
   IStudentExamPaperResponse,
   IEditStudentResponse,
+  IChangeUserPasswordResponse,
+  IuserPassword,
 } from './interface/student.interface';
 
 @Injectable({
@@ -157,6 +159,19 @@ export class UserDataService implements OnInit {
     return this.http.put<IEditStudentResponse>(
       `${this.url}student/studentProfile`,
       userId,
+      {
+        headers: headers,
+      }
+    );
+  }
+
+  public changerUserPassword(
+    userPassword: IuserPassword
+  ): Observable<IChangeUserPasswordResponse> {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.post<IChangeUserPasswordResponse>(
+      `${this.url}users/ResetPassword`,
+      userPassword,
       {
         headers: headers,
       }

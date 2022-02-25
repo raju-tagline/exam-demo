@@ -54,3 +54,20 @@ export interface IUserId{
   name?:string | null
 }
 
+export interface IChangeUserPassword{
+  name: string;
+  email: string; 
+  id: string;
+}
+
+export interface IChangeUserPasswordResponse {
+  statusCode: number;
+  message: string;
+  data: IChangeUserPassword
+}
+
+export interface IuserPassword {
+  oldPassword: string;
+  Password: string;
+  ConfirmPassword:string;
+}
