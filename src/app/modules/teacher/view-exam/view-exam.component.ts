@@ -30,6 +30,10 @@ export class ViewExamComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.vierExam();
+  }
+  
+  public vierExam():void {
     this.userDataService
       .viewExam()
       .subscribe((res: IViewExamResponse): void => {
@@ -53,6 +57,7 @@ export class ViewExamComponent implements OnInit {
       .subscribe((res: IDeleteExamPaperResponse): void => {
         if (res?.message === 'Delete exam successfully') {
           this.toastr.success(res?.message);
+          this.vierExam();
         } else {
           this.toastr.error('Something went wrong!');
         }
