@@ -11,6 +11,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { StudentExamPaperComponent } from './student-exam-paper/student-exam-paper.component';
 import { EditStudentProfileComponent } from './edit-student-profile/edit-student-profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChangePassowrdComponent } from './change-passowrd/change-passowrd.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     StudentProfileComponent,
     ForgetPasswordComponent,
     StudentExamPaperComponent,
-    EditStudentProfileComponent
+    EditStudentProfileComponent,
+    ChangePassowrdComponent
   ],
   imports: [
     CommonModule,
