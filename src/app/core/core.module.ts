@@ -5,21 +5,9 @@ import { HeaderComponent } from './header/header.component';
 import { BackComponent } from './back/back.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
-
-
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    BackComponent,
-    ResetPasswordComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports:[
-    HeaderComponent,
-    BackComponent
-  ]
+  declarations: [HeaderComponent, BackComponent, ResetPasswordComponent],
+  imports: [CommonModule, RouterModule],
+  exports: [HeaderComponent, BackComponent, ResetPasswordComponent],
 })
-export class CoreModule { }
+export class CoreModule {}

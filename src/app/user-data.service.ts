@@ -167,5 +167,6 @@ export class UserDataService implements OnInit {
     localStorage.removeItem('Token');
     localStorage.removeItem('name');
     localStorage.removeItem('role');
+    localStorage.removeItem('email');
   }
 }

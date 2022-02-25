@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login.component.scss'],
 })
 export class UserLoginComponent implements OnInit {
-  public userEmail:string = "raju.tagline+1@gmail.com";
-  public userPassword:string = "Raju1234";
+  public userEmail: string = 'raju.tagline+1@gmail.com';
+  public userPassword: string = 'Raju1234';
   constructor(
     private userDataService: UserDataService,
     private toastr: ToastrService,
@@ -32,13 +32,15 @@ export class UserLoginComponent implements OnInit {
         if (res?.statusCode === 200 && res?.data.role === 'teacher') {
           localStorage.setItem('Token', res?.data.token);
           localStorage.setItem('name', res?.data.name);
-          localStorage.setItem('role',res?.data.role);
+          localStorage.setItem('role', res?.data.role);
+          localStorage.setItem('email', res?.data.email);
           this.toastr.success(res?.message);
           this.router.navigate(['/teacher/dashboard']);
         } else if (res?.statusCode === 200 && res?.data.role === 'student') {
           localStorage.setItem('Token', res?.data.token);
           localStorage.setItem('name', res?.data.name);
-          localStorage.setItem('role',res?.data.role);
+          localStorage.setItem('role', res?.data.role);
+          localStorage.setItem('email', res?.data.email);
           this.toastr.success(res?.message);
           this.router.navigate(['/student/dashboard']);
         } else {
