@@ -11,8 +11,8 @@
             <th>Notes</th>
             <th>Auther</th>
             <th>Id</th>
-            <th>V</th>
             <th>Show</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -21,8 +21,8 @@
             <td>{{ exam.notes }}</td>
             <td>{{ exam.email }}</td>
             <td>{{ exam._id }}</td>
-            <td>{{ exam._v }}</td>
-            <td><button (click)="viewExamDetails(exam._id)">Show</button></td>
+            <td><button class="btn btn-success" (click)="viewExamDetails(exam._id)">Show</button></td>
+            <td><button class="btn btn-danger" (click)="deleteExamDetails(exam._id)">Delete</button></td>
         </tr>
     </tbody>
 </table>

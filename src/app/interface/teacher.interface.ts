@@ -106,3 +106,11 @@ export interface IViewStudentExamResponse {
   message: string;
   statusCode: number;
 }
+
+export interface IDeleteExamPaper {}
+
+export interface IDeleteExamPaperResponse {
+  statusCode: number;
+  message: string;
+  data: IDeleteExamPaper;
+}

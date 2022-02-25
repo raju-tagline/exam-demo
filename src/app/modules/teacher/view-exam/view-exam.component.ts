@@ -2,11 +2,14 @@ import {
   IViewStudentExamResponse,
   IViewExamResponse,
   IViewExam,
+  IDeleteExamPaperResponse,
 } from '../../../interface/teacher.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ExamDetailComponent } from '../exam-detail/exam-detail.component';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-exam',
@@ -21,7 +24,9 @@ export class ViewExamComponent implements OnInit {
 
   constructor(
     private userDataService: UserDataService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,12 +38,24 @@ export class ViewExamComponent implements OnInit {
       });
   }
 
-  public viewExamDetails(id: string) {
+  public viewExamDetails(id: string): void {
     this.userDataService
       .viewExamData(id)
       .subscribe((res: IViewStudentExamResponse): void => {
         const modelRef = this.modalService.open(ExamDetailComponent);
         modelRef.componentInstance.question = res?.data.questions;
+      });
+  }
+
+  public deleteExamDetails(id: string): void {
+    this.userDataService
+      .deleteExam(id)
+      .subscribe((res: IDeleteExamPaperResponse): void => {
+        if (res?.message === 'Delete exam successfully') {
+          this.toastr.success(res?.message);
+        } else {
+          this.toastr.error('Something went wrong!');
+        }
       });
   }
 }

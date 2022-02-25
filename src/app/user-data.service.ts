@@ -6,6 +6,7 @@ import {
   IViewStudentExamResponse,
   IViewExamResponse,
   IResetPasswordResponse,
+  IDeleteExamPaperResponse,
 } from './interface/teacher.interface';
 import { IUserData, IUserDataResponse } from './interface/user.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -172,6 +173,16 @@ export class UserDataService implements OnInit {
     return this.http.post<IChangeUserPasswordResponse>(
       `${this.url}users/ResetPassword`,
       userPassword,
+      {
+        headers: headers,
+      }
+    );
+  }
+
+  public deleteExam(examId: string): Observable<IDeleteExamPaperResponse> {
+    const headers = new HttpHeaders().set('access-token', this.token);
+    return this.http.delete<IDeleteExamPaperResponse>(
+      `${this.url}dashboard/Teachers/deleteExam?id=` + examId,
       {
         headers: headers,
       }
