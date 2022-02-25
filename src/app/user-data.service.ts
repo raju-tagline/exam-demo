@@ -30,6 +30,7 @@ export class UserDataService implements OnInit {
   public token: string = localStorage.getItem('Token') || '';
   public name: string = localStorage.getItem('name') || '';
   public role: string = localStorage.getItem('role') || '';
+  public headers = new HttpHeaders().set('access-token', this.token);
 
   constructor(private http: HttpClient) {}
 
@@ -44,11 +45,10 @@ export class UserDataService implements OnInit {
   }
 
   public showStudentData(): Observable<IStudentDataResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IStudentDataResponse>(
       `${this.url}dashboard/Teachers`,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
@@ -56,58 +56,52 @@ export class UserDataService implements OnInit {
   public viewStudentData(
     userID: string
   ): Observable<IVerifyStudentDataResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     const getUrl =
       `${this.url}dashboard/Teachers/viewStudentDetail?id=` + userID;
     return this.http.get<IVerifyStudentDataResponse>(getUrl, {
-      headers: headers,
+      headers: this.headers,
     });
   }
 
   public verifiedStudentData(): Observable<IShowStudentProfileResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IShowStudentProfileResponse>(
       `${this.url}dashboard/Teachers/StudentForExam`,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
 
   public viewExam(): Observable<IViewExamResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IViewExamResponse>(
       `${this.url}dashboard/Teachers/viewExam`,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
 
   public viewExamData(examId: string): Observable<IViewStudentExamResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     const getUrl = `${this.url}dashboard/Teachers/examDetail?id=` + examId;
     return this.http.get<IViewStudentExamResponse>(getUrl, {
-      headers: headers,
+      headers: this.headers,
     });
   }
 
   public studentDetail(): Observable<IStudentProfileResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IStudentProfileResponse>(
       `${this.url}student/getStudentDetail`,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
 
   public viewExamPaper(userId: string): Observable<IUserData> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IUserData>(
       `${this.url}student/examPaper?id=` + userId,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
@@ -122,21 +116,19 @@ export class UserDataService implements OnInit {
   }
 
   public viewStudentAllExam(): Observable<IStudentExamResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IStudentExamResponse>(
       `${this.url}student/studentExam`,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
 
   public studentProfile(): Observable<IStudentProfileResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IStudentProfileResponse>(
       `${this.url}student/getStudentDetail`,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
@@ -144,11 +136,10 @@ export class UserDataService implements OnInit {
   public studentExamPaper(
     examId: string
   ): Observable<IStudentExamPaperResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IStudentExamPaperResponse>(
       `${this.url}student/examPaper?id=` + examId,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
@@ -156,12 +147,11 @@ export class UserDataService implements OnInit {
   public updateStudentProfile(
     userId: string
   ): Observable<IEditStudentResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.put<IEditStudentResponse>(
       `${this.url}student/studentProfile`,
       userId,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
@@ -169,22 +159,20 @@ export class UserDataService implements OnInit {
   public changerUserPassword(
     userPassword: IuserPassword
   ): Observable<IChangeUserPasswordResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.post<IChangeUserPasswordResponse>(
       `${this.url}users/ResetPassword`,
       userPassword,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
 
   public deleteExam(examId: string): Observable<IDeleteExamPaperResponse> {
-    const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.delete<IDeleteExamPaperResponse>(
       `${this.url}dashboard/Teachers/deleteExam?id=` + examId,
       {
-        headers: headers,
+        headers: this.headers,
       }
     );
   }
