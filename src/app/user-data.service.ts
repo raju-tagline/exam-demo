@@ -138,21 +138,29 @@ export class UserDataService implements OnInit {
     );
   }
 
-  public studentExamPaper(examId:string): Observable<IStudentExamPaperResponse> {
+  public studentExamPaper(
+    examId: string
+  ): Observable<IStudentExamPaperResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
     return this.http.get<IStudentExamPaperResponse>(
-      `${this.url}student/examPaper?id=` +examId ,
+      `${this.url}student/examPaper?id=` + examId,
       {
         headers: headers,
       }
     );
   }
 
-  public updateStudentProfile(userId:string) :Observable<IEditStudentResponse>{
+  public updateStudentProfile(
+    userId: string
+  ): Observable<IEditStudentResponse> {
     const headers = new HttpHeaders().set('access-token', this.token);
-    return this.http.put<IEditStudentResponse>(`${this.url}student/studentProfile`,userId,{
-      headers:headers
-    });
+    return this.http.put<IEditStudentResponse>(
+      `${this.url}student/studentProfile`,
+      userId,
+      {
+        headers: headers,
+      }
+    );
   }
 
   public LogOut(): void {

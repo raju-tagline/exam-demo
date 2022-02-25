@@ -43,9 +43,7 @@ export class EditStudentProfileComponent implements OnInit, AfterViewInit {
   }
   public save() {
     const userName: string | any = { name: this.reactiveForm.value.name };
-    console.log(typeof userName);
-    this.userDataService
-      .updateStudentProfile(userName)
+    this.userDataService.updateStudentProfile(userName)
       .subscribe((res: IEditStudentResponse): void => {
         localStorage.setItem('name', this.reactiveForm.value.name);
         this.router.navigate(['/student/profile']);

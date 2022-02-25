@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login.component.scss'],
 })
 export class UserLoginComponent implements OnInit {
+  public userEmail:string = "raju.tagline+1@gmail.com";
+  public userPassword:string = "Raju1234";
   constructor(
     private userDataService: UserDataService,
     private toastr: ToastrService,
