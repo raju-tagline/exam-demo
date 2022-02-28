@@ -5,7 +5,7 @@ import {
 } from '../../../interface/teacher.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {
   NgbModal,
   ModalDismissReasons,
@@ -25,10 +25,16 @@ export class ShowStudentDataComponent implements OnInit {
   constructor(
     private userDataService: UserDataService,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    console.log('this.activatedRoute.data :>> ', this.activatedRoute.data);
+    this.activatedRoute.data.subscribe((response: any) =>
+      console.log('response :>> ', response)
+    );
+
     this.userDataService
       .showStudentData()
       .subscribe((data: IStudentDataResponse): void => {

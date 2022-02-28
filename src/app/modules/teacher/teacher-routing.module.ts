@@ -8,50 +8,52 @@ import { VerifyStudentComponent } from './verify-student/verify-student.componen
 import { CreateExamComponent } from './create-exam/create-exam.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AuthGuard } from 'src/app/auth.guard';
+import { StudentListResolverService } from 'src/app/resolver/student-list-resolver.service';
 
 const routes: Routes = [
   {
-    path:'dashboard',
-    component:DashboardComponent,
-    canActivate:[AuthGuard],
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'student-list',
-    component:ShowStudentDataComponent,
-    canActivate:[AuthGuard],
+    path: 'student-list',
+    component: ShowStudentDataComponent,
+    resolve: { studentData: StudentListResolverService },
+    canActivate: [AuthGuard],
   },
   {
-    path:'verify-student',
-    component:VerifyStudentComponent,
-    canActivate:[AuthGuard],
+    path: 'verify-student',
+    component: VerifyStudentComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'view-exam',
-    component:ViewExamComponent,
-    canActivate:[AuthGuard],
+    path: 'view-exam',
+    component: ViewExamComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'create-exam',
-    component:CreateExamComponent,
-    canActivate:[AuthGuard],
+    path: 'create-exam',
+    component: CreateExamComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'verified-student',
-    component:VerifiedStudentComponent
+    path: 'verified-student',
+    component: VerifiedStudentComponent,
   },
   {
-    path:'reset-password',
-    component:ResetPasswordComponent,
-    canActivate:[AuthGuard],
+    path: 'reset-password',
+    component: ResetPasswordComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path:'**',
-    redirectTo:'dashboard'
+    path: '**',
+    redirectTo: 'dashboard',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TeacherRoutingModule { }
+export class TeacherRoutingModule {}

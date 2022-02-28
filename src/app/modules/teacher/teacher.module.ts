@@ -11,6 +11,7 @@ import { CreateExamComponent } from './create-exam/create-exam.component';
 import { ExamDetailComponent } from './exam-detail/exam-detail.component';
 import { VerifiedStudentComponent } from './verified-student/verified-student.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
   imports: [
     CommonModule,
     TeacherRoutingModule,
-    CoreModule
+    CoreModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class TeacherModule { }
