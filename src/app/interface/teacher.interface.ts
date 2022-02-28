@@ -114,3 +114,21 @@ export interface IDeleteExamPaperResponse {
   message: string;
   data: IDeleteExamPaper;
 }
+
+export interface ICreateExamQuestions {
+  question: string;
+  answer: string;
+  options: string[];
+}
+
+export interface ICreateExam {
+  subjectName: string;
+  questions: ICreateExamQuestions[];
+  notes: string[];
+}
+
+export interface ICreateExamResponse {
+  data: ICreateExam;
+  message: string;
+  statusCode: number;
+}
