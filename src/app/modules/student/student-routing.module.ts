@@ -1,3 +1,4 @@
+import { StudentExamListResolverService } from './../../resolver/student-exam-list-resolver.service';
 import { StudentProfileResolverService } from './../../resolver/student-profile-resolver.service';
 import { ChangePassowrdComponent } from './change-passowrd/change-passowrd.component';
 import { StudentExamPaperComponent } from './student-exam-paper/student-exam-paper.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   {
     path: 'view-exam',
     component: ViewExamComponent,
+    resolve: { studentExamList: StudentExamListResolverService },
     canActivate: [AuthGuard],
   },
   {
