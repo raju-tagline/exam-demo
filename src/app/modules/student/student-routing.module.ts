@@ -1,3 +1,4 @@
+import { StudentProfileResolverService } from './../../resolver/student-profile-resolver.service';
 import { ChangePassowrdComponent } from './change-passowrd/change-passowrd.component';
 import { StudentExamPaperComponent } from './student-exam-paper/student-exam-paper.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: StudentProfileComponent,
+    resolve: { studentProfile: StudentProfileResolverService },
     canActivate: [AuthGuard],
   },
   {
