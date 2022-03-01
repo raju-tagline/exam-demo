@@ -1,5 +1,6 @@
 import {
   IShowStudentData,
+  IStudentDataResponse,
   IVerifyStudentDataResponse,
 } from 'src/app/interface/teacher.interface';
 import { UserDataService } from 'src/app/services/user-data.service';
@@ -25,10 +26,10 @@ export class ShowStudentDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe((response: any): void => {
-      this.studentData = response.studentData.data;
-      this.loadData = false;
-    });
+    const studentData: IStudentDataResponse =
+      this.activatedRoute.snapshot.data['studentData'];
+    this.studentData = studentData?.data;
+    this.loadData = false;
   }
 
   public viewStudentDetails(id: string): void {

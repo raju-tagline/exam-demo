@@ -7,7 +7,6 @@ export interface IStudentExam {
 }
 
 export interface IStudentExamResponse {
-  studentExamList: any;
   data: IStudentExam[];
   message: string;
   statusCode: number;
@@ -51,24 +50,28 @@ export interface IEditStudentResponse {
   statusCode: number;
 }
 
-export interface IUserId{
-  name?:string | null
+export interface IUserId {
+  name?: string | null;
 }
 
-export interface IChangeUserPassword{
+export interface IChangeUserPassword {
   name: string;
-  email: string; 
+  email: string;
   id: string;
 }
 
 export interface IChangeUserPasswordResponse {
   statusCode: number;
   message: string;
-  data: IChangeUserPassword
+  data: IChangeUserPassword;
 }
 
 export interface IuserPassword {
   oldPassword: string;
   Password: string;
-  ConfirmPassword:string;
+  ConfirmPassword: string;
+}
+
+export interface IUserName {
+  name: string;
 }

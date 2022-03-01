@@ -2,6 +2,7 @@ import {
   IViewStudentExamResponse,
   IViewExam,
   IDeleteExamPaperResponse,
+  IViewExamResponse,
 } from 'src/app/interface/teacher.interface';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
@@ -34,10 +35,10 @@ export class ViewExamComponent implements OnInit {
   }
 
   public vierExam(): void {
-    this.activatedRoute.data.subscribe((response: any): void => {
-      // this.examDetails = response.viewExamDetail.data;
-      this.loadData = false;
-    });
+    const viewExamDetail: IViewExamResponse =
+      this.activatedRoute.snapshot.data['viewExamDetail'];
+    this.examDetails = viewExamDetail?.data;
+    this.loadData = false;
   }
 
   public viewExamDetails(id: string): void {

@@ -1,6 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
-import { IStudentExam } from 'src/app/interface/student.interface';
-import { UserDataService } from 'src/app/services/user-data.service';
+import {
+  IStudentExam,
+  IStudentExamResponse,
+} from 'src/app/interface/student.interface';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { StudentExamPaperComponent } from 'src/app/modules/student/student-exam-paper/student-exam-paper.component';
@@ -24,7 +26,6 @@ export class ViewExamComponent implements OnInit {
   public totalExam!: number;
 
   constructor(
-    private userDataService: UserDataService,
     private modalService: NgbModal,
     private activatedRoute: ActivatedRoute
   ) {}
@@ -34,11 +35,11 @@ export class ViewExamComponent implements OnInit {
   }
 
   public studentExam(): void {
-    this.activatedRoute.data.subscribe((response: any): void => {
-      this.examArr = response.studentExamList?.data;
-      this.totalExam = response.studentExamList?.data.length;
-      this.loadData = false;
-    });
+    const studentExamList: IStudentExamResponse =
+      this.activatedRoute.snapshot.data['studentExamList'];
+    this.examArr = studentExamList?.data;
+    this.totalExam = studentExamList?.data.length;
+    this.loadData = false;
   }
 
   public viewExampaper(event: string): void {

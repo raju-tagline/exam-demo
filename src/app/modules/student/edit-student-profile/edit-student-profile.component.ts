@@ -1,12 +1,11 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserDataService } from 'src/app/services/user-data.service';
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
-  IEditStudentResponse,
   IStudentProfile,
-  IStudentProfileResponse,
   IUserId,
+  IUserName,
 } from 'src/app/interface/student.interface';
 
 @Component({
@@ -48,19 +47,12 @@ export class EditStudentProfileComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public save() {
-    const userName: string | any = { name: this.reactiveForm.value.name };
+  public save(): void {
+    const userName: IUserName = { name: this.reactiveForm.value.name };
 
-    this.activatedRoute.data.subscribe((res) => {
+    this.activatedRoute.data.subscribe((res): void => {
       localStorage.setItem('name', this.reactiveForm.value.name);
       this.router.navigate(['/student/profile']);
     });
-
-    // this.userDataService
-    //   .updateStudentProfile(userName)
-    //   .subscribe((res: IEditStudentResponse): void => {
-    //     localStorage.setItem('name', this.reactiveForm.value.name);
-    //     this.router.navigate(['/student/profile']);
-    //   });
   }
 }

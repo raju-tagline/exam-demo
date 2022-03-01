@@ -1,6 +1,8 @@
-import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
-import { IStudentProfile } from 'src/app/interface/student.interface';
+import {
+  IStudentProfile,
+  IStudentProfileResponse,
+} from 'src/app/interface/student.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,24 +14,20 @@ export class StudentProfileComponent implements OnInit {
   public studentArr: IStudentProfile[] = [];
   public loadData: boolean = true;
 
-  constructor(
-    private userDataService: UserDataService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.studentProfile();
   }
 
   public studentProfile(): void {
-    this.activatedRoute.data.subscribe((response: any): void => {
-      this.studentArr.push(response.studentProfile?.data);
-      this.loadData = false;
-    });
+    const studentProfile: IStudentProfileResponse =
+      this.activatedRoute.snapshot.data['studentProfile'];
+    this.studentArr.push(studentProfile?.data);
+    this.loadData = false;
   }
 
-  public editMode(id: string) {
+  public editMode(id: string): void {
     this.router.navigate(['/student/edit-profile/' + id]);
   }
 }

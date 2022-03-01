@@ -1,6 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
-import { ITeacher } from 'src/app/interface/teacher.interface';
-import { UserDataService } from 'src/app/services/user-data.service';
+import {
+  IShowStudentProfileResponse,
+  ITeacher,
+} from 'src/app/interface/teacher.interface';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -20,20 +22,17 @@ export class VerifiedStudentComponent implements OnInit {
   public loadData: boolean = true;
   public activeStudent!: number;
 
-  constructor(
-    private userDataService: UserDataService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.verfieStudent();
   }
 
   public verfieStudent(): void {
-    this.activatedRoute.data.subscribe((response: any): void => {
-      this.verifieyData = response.virifedStudent.data;
-      this.activeStudent = response.virifedStudent.data.length;
-      this.loadData = false;
-    });
+    const virifedStudent: IShowStudentProfileResponse =
+      this.activatedRoute.snapshot.data['virifedStudent'];
+    this.verifieyData = virifedStudent?.data;
+    this.activeStudent = virifedStudent?.data.length;
+    this.loadData = false;
   }
 }
