@@ -23,12 +23,12 @@ export class EditStudentProfileComponent implements OnInit, AfterViewInit {
 
   constructor(
     private userDataService: UserDataService,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
 
   ngAfterViewInit(): void {
-    this.userId = { name: this.route.snapshot.paramMap.get('id') };
+    this.userId = { name: this.activatedRoute.snapshot.paramMap.get('id') };
     this.reactiveForm.setValue(this.userId);
   }
 
@@ -36,17 +36,31 @@ export class EditStudentProfileComponent implements OnInit, AfterViewInit {
     this.reactiveForm = new FormGroup({
       name: new FormControl(),
     });
+    this.profile();
+  }
+
+  public profile(): void {
+    const studentProfile = this.activatedRoute.snapshot.data['studentProfile'];
+
     this.userDataService.studentProfile().subscribe((res): void => {
       this.studentArr.push(res?.data);
       this.loadData = false;
     });
   }
+
   public save() {
     const userName: string | any = { name: this.reactiveForm.value.name };
-    this.userDataService.updateStudentProfile(userName)
-      .subscribe((res: IEditStudentResponse): void => {
-        localStorage.setItem('name', this.reactiveForm.value.name);
-        this.router.navigate(['/student/profile']);
-      });
+
+    this.activatedRoute.data.subscribe((res) => {
+      localStorage.setItem('name', this.reactiveForm.value.name);
+      this.router.navigate(['/student/profile']);
+    });
+
+    // this.userDataService
+    //   .updateStudentProfile(userName)
+    //   .subscribe((res: IEditStudentResponse): void => {
+    //     localStorage.setItem('name', this.reactiveForm.value.name);
+    //     this.router.navigate(['/student/profile']);
+    //   });
   }
 }

@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-sm-auto">
                 <button class="btn btn-success text-white" routerLink="/users/login" (click)="LogIn()"
-                    *ngIf="tokenValue">LogIn</button>
-                <button class="btn btn-success text-white" routerLink="/users/login" (click)="LogIn()"
-                    *ngIf="!tokenValue">LogOut</button>
+                    *ngIf="!token">LogIn</button>
+                <button class="btn btn-success text-white" routerLink="/users/login" (click)="LogOut()"
+                    *ngIf="token">LogOut</button>
             </div>
             <div class="col-sm-auto">
                 <button class="btn btn-warning text-white">B</button>

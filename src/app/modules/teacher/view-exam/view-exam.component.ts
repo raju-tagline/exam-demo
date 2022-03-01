@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ExamDetailComponent } from '../exam-detail/exam-detail.component';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-exam',
@@ -26,20 +26,19 @@ export class ViewExamComponent implements OnInit {
     private userDataService: UserDataService,
     private modalService: NgbModal,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.vierExam();
   }
-  
-  public vierExam():void {
-    this.userDataService
-      .viewExam()
-      .subscribe((res: IViewExamResponse): void => {
-        this.examDetails = res.data;
-        this.loadData = false;
-      });
+
+  public vierExam(): void {
+    this.activatedRoute.data.subscribe((response: any) => {
+      // this.examDetails = response.viewExamDetail.data;
+      this.loadData = false;
+    });
   }
 
   public viewExamDetails(id: string): void {

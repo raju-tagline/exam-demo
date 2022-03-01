@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   public viewStudent(): void {
     this.userDataService
-      .studentDetail()
+      .studentProfile()
       .subscribe((res: IStudentProfileResponse): void => {});
   }
 }

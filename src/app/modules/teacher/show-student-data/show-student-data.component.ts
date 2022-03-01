@@ -30,17 +30,10 @@ export class ShowStudentDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('this.activatedRoute.data :>> ', this.activatedRoute.data);
-    this.activatedRoute.data.subscribe((response: any) =>
-      console.log('response :>> ', response)
-    );
-
-    this.userDataService
-      .showStudentData()
-      .subscribe((data: IStudentDataResponse): void => {
-        this.studentData = data.data;
-        this.loadData = false;
-      });
+    this.activatedRoute.data.subscribe((response: any) => {
+      this.studentData = response.studentData.data;
+      this.loadData = false;
+    });
   }
 
   public viewStudentDetails(id: string): void {

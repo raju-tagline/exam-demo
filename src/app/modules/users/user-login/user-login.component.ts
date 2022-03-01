@@ -1,3 +1,4 @@
+import { LoginStatusService } from './../../../services/login-status.service';
 import {
   IUserData,
   IUserDataResponse,
@@ -18,7 +19,8 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private userDataService: UserDataService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private loginStatusService: LoginStatusService
   ) {}
 
   ngOnInit(): void {}
@@ -29,20 +31,23 @@ export class UserLoginComponent implements OnInit {
     this.userDataService
       .login(data)
       .subscribe((res: IUserDataResponse): void => {
+        this.loginStatusService.isLogin$.next(true);
+
         if (res?.statusCode === 200 && res?.data.role === 'teacher') {
           localStorage.setItem('Token', res?.data.token);
           localStorage.setItem('name', res?.data.name);
           localStorage.setItem('role', res?.data.role);
           localStorage.setItem('email', res?.data.email);
           this.toastr.success(res?.message);
-          this.router.navigate(['/teacher/dashboard']);
+
+          this.router.navigate(['/teacher']);
         } else if (res?.statusCode === 200 && res?.data.role === 'student') {
           localStorage.setItem('Token', res?.data.token);
           localStorage.setItem('name', res?.data.name);
           localStorage.setItem('role', res?.data.role);
           localStorage.setItem('email', res?.data.email);
           this.toastr.success(res?.message);
-          this.router.navigate(['/student/dashboard']);
+          this.router.navigate(['/student']);
         } else {
           this.toastr.error(res?.message);
         }

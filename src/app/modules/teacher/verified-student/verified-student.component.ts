@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import {
   IShowStudentProfileResponse,
   ITeacher,
@@ -22,15 +23,20 @@ export class VerifiedStudentComponent implements OnInit {
   public loadData: boolean = true;
   public activeStudent!: number;
 
-  constructor(private userDataService: UserDataService) {}
+  constructor(
+    private userDataService: UserDataService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.userDataService
-      .verifiedStudentData()
-      .subscribe((res: IShowStudentProfileResponse): void => {
-        this.verifieyData = res?.data;
-        this.activeStudent = res?.data.length;
-        this.loadData = false;
-      });
+    this.verfieStudent();
+  }
+
+  public verfieStudent(): void {
+    this.activatedRoute.data.subscribe((response: any) => {
+      this.verifieyData = response.virifedStudent.data;
+      this.activeStudent = response.virifedStudent.data.length;
+      this.loadData = false;
+    });
   }
 }

@@ -58,6 +58,7 @@ const routes: Routes = [
   {
     path: 'edit-profile/:id',
     component: EditStudentProfileComponent,
+    resolve: { studentProfile: StudentProfileResolverService },
     canActivate: [AuthGuard],
   },
   {

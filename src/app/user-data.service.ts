@@ -1,3 +1,4 @@
+import { LoginStatusService } from './services/login-status.service';
 import {
   IStudentDataResponse,
   IVerifyStudentDataResponse,
@@ -21,6 +22,7 @@ import {
   IChangeUserPasswordResponse,
   IuserPassword,
 } from './interface/student.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +34,11 @@ export class UserDataService implements OnInit {
   public role: string = localStorage.getItem('role') || '';
   public headers = new HttpHeaders().set('access-token', this.token);
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private loginStatusService: LoginStatusService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -88,14 +94,14 @@ export class UserDataService implements OnInit {
     });
   }
 
-  public studentDetail(): Observable<IStudentProfileResponse> {
-    return this.http.get<IStudentProfileResponse>(
-      `${this.url}student/getStudentDetail`,
-      {
-        headers: this.headers,
-      }
-    );
-  }
+  // public studentDetail(): Observable<IStudentProfileResponse> {
+  //   return this.http.get<IStudentProfileResponse>(
+  //     `${this.url}student/getStudentDetail`,
+  //     {
+  //       headers: this.headers,
+  //     }
+  //   );
+  // }
 
   public viewExamPaper(userId: string): Observable<IUserData> {
     return this.http.get<IUserData>(
@@ -182,5 +188,7 @@ export class UserDataService implements OnInit {
     localStorage.removeItem('name');
     localStorage.removeItem('role');
     localStorage.removeItem('email');
+    this.router.navigate(['']);
+    this.loginStatusService.isLogin$.next(false);
   }
 }

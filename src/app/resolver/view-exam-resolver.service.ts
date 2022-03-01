@@ -20,6 +20,6 @@ export class ViewExamResolverService implements Resolve<IViewExamResponse> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<IViewExamResponse> {
-    return this.userDataService.viewExam();
+      return this.userDataService.viewExam();
   }
 }

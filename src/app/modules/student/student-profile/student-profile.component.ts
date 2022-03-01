@@ -1,10 +1,7 @@
-import { IStudentProfileResponse } from '../../../interface/student.interface';
 import { UserDataService } from './../../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { IStudentProfile } from 'src/app/interface/student.interface';
-import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-student-profile',
@@ -14,20 +11,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class StudentProfileComponent implements OnInit {
   public studentArr: IStudentProfile[] = [];
   public loadData: boolean = true;
-  public reactiveForm!: FormGroup;
 
   constructor(
     private userDataService: UserDataService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.userDataService
-      .studentProfile()
-      .subscribe((res: IStudentProfileResponse): void => {
-        this.studentArr.push(res.data);
-        this.loadData = false;
-      });
+    this.studentProfile();
+  }
+
+  public studentProfile(): void {
+    this.activatedRoute.data.subscribe((response: any) => {
+      this.studentArr.push(response.studentProfile?.data);
+      this.loadData = false;
+    });
   }
 
   public editMode(id: string) {

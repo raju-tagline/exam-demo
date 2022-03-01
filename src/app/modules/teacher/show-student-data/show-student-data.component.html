@@ -5,7 +5,7 @@
     </div>
 </div>
 <div class="row justify-content-center" *ngIf="!loadData">
-    <div class="col-sm-8">
+    <div class="col-sm-8 table-responsive">
         <table class="table">
             <thead class="table-dark">
                 <tr>
@@ -25,7 +25,8 @@
                     <td> {{ data.name }} </td>
                     <td> {{ data.email }} </td>
                     <td>
-                        <button type="button" class="btn btn-outline-dark" (click)="viewStudentDetails(data._id)">Show Info</button>
+                        <button type="button" class="btn btn-outline-dark" (click)="viewStudentDetails(data._id)">Show
+                            Info</button>
                     </td>
                 </tr>
             </tbody>

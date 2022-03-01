@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import {
   IStudentExam,
   IStudentExamResponse,
@@ -27,21 +28,26 @@ export class ViewExamComponent implements OnInit {
 
   constructor(
     private userDataService: UserDataService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.userDataService
-      .viewStudentAllExam()
-      .subscribe((res: IStudentExamResponse): void => {
-        this.examArr = res?.data;
-        this.totalExam = res?.data.length;
-        this.loadData = false;
-      });
+    this.studentExam();
   }
 
-  public viewExampaper(event: string) {
-    const modalRef = this.modalService.open(StudentExamPaperComponent,{size : 'lg'});
+  public studentExam(): void {
+    this.activatedRoute.data.subscribe((response: any) => {
+      this.examArr = response.studentExamList?.data;
+      this.totalExam = response.studentExamList?.data.length;
+      this.loadData = false;
+    });
+  }
+
+  public viewExampaper(event: string): void {
+    const modalRef = this.modalService.open(StudentExamPaperComponent, {
+      size: 'lg',
+    });
     modalRef.componentInstance.exampaperId = event;
   }
 }
