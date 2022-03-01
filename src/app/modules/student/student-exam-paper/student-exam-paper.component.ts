@@ -1,4 +1,4 @@
-import { UserDataService } from './../../../user-data.service';
+import { UserDataService } from '../../../services/user-data.service';
 import { Component, Input, OnInit } from '@angular/core';
 import {
   IStudentExamPaper,

@@ -1,5 +1,5 @@
 import { IUserDataResponse } from '../../../interface/user.interface';
-import { UserDataService } from './../../../user-data.service';
+import { UserDataService } from '../../../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import {
   FormControl,

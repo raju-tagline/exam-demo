@@ -4,7 +4,7 @@ import {
   IViewExam,
   IDeleteExamPaperResponse,
 } from '../../../interface/teacher.interface';
-import { UserDataService } from './../../../user-data.service';
+import { UserDataService } from '../../../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ExamDetailComponent } from '../exam-detail/exam-detail.component';

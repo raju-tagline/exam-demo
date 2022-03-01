@@ -1,4 +1,4 @@
-import { UserDataService } from './../user-data.service';
+import { UserDataService } from '../services/user-data.service';
 import { environment } from '../../environments/environment.prod';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';

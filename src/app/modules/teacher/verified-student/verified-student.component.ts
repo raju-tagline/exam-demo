@@ -3,7 +3,7 @@ import {
   IShowStudentProfileResponse,
   ITeacher,
 } from '../../../interface/teacher.interface';
-import { UserDataService } from './../../../user-data.service';
+import { UserDataService } from '../../../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

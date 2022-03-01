@@ -1,4 +1,4 @@
-import { UserDataService } from './../../user-data.service';
+import { UserDataService } from '../../services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { IChangeUserPasswordResponse, IuserPassword } from 'src/app/interface/student.interface';
