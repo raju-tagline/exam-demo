@@ -1,3 +1,4 @@
+import { ViewExamResolverService } from './../../resolver/view-exam-resolver.service';
 import { VerifiedStudentDetailsResolverService } from './../../resolver/verified-student-details-resolver.Service';
 import { VerifiedStudentComponent } from './verified-student/verified-student.component';
 import { ViewExamComponent } from './view-exam/view-exam.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: 'view-exam',
     component: ViewExamComponent,
+    resolve:{viewExamDetail : ViewExamResolverService},
     canActivate: [AuthGuard],
   },
   {
