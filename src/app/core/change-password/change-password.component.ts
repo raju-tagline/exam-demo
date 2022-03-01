@@ -1,7 +1,10 @@
-import { UserDataService } from '../../services/user-data.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { IChangeUserPasswordResponse, IuserPassword } from 'src/app/interface/student.interface';
+import {
+  IChangeUserPasswordResponse,
+  IuserPassword,
+} from 'src/app/interface/student.interface';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -42,7 +45,7 @@ export class ChangePasswordComponent implements OnInit {
       });
   }
 
-  public password(): void{
+  public password(): void {
     this.show = !this.show;
   }
 }

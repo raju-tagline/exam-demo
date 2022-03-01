@@ -1,13 +1,12 @@
 import {
   IViewStudentExamResponse,
-  IViewExamResponse,
   IViewExam,
   IDeleteExamPaperResponse,
-} from '../../../interface/teacher.interface';
-import { UserDataService } from '../../../services/user-data.service';
+} from 'src/app/interface/teacher.interface';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ExamDetailComponent } from '../exam-detail/exam-detail.component';
+import { ExamDetailComponent } from 'src/app/modules/teacher/exam-detail/exam-detail.component';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -35,7 +34,7 @@ export class ViewExamComponent implements OnInit {
   }
 
   public vierExam(): void {
-    this.activatedRoute.data.subscribe((response: any):void => {
+    this.activatedRoute.data.subscribe((response: any): void => {
       // this.examDetails = response.viewExamDetail.data;
       this.loadData = false;
     });

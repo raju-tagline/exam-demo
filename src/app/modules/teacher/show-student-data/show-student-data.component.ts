@@ -1,17 +1,12 @@
 import {
-  IStudentDataResponse,
   IShowStudentData,
   IVerifyStudentDataResponse,
-} from '../../../interface/teacher.interface';
-import { UserDataService } from '../../../services/user-data.service';
+} from 'src/app/interface/teacher.interface';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {
-  NgbModal,
-  ModalDismissReasons,
-  NgbActiveModal,
-} from '@ng-bootstrap/ng-bootstrap';
-import { VerifyStudentComponent } from '../verify-student/verify-student.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VerifyStudentComponent } from 'src/app/modules/teacher/verify-student/verify-student.component';
 
 @Component({
   selector: 'app-show-student-data',
@@ -30,7 +25,7 @@ export class ShowStudentDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe((response: any):void => {
+    this.activatedRoute.data.subscribe((response: any): void => {
       this.studentData = response.studentData.data;
       this.loadData = false;
     });

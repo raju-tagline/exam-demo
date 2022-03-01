@@ -1,9 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
-import {
-  IShowStudentProfileResponse,
-  ITeacher,
-} from '../../../interface/teacher.interface';
-import { UserDataService } from '../../../services/user-data.service';
+import { ITeacher } from 'src/app/interface/teacher.interface';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -33,7 +30,7 @@ export class VerifiedStudentComponent implements OnInit {
   }
 
   public verfieStudent(): void {
-    this.activatedRoute.data.subscribe((response: any):void => {
+    this.activatedRoute.data.subscribe((response: any): void => {
       this.verifieyData = response.virifedStudent.data;
       this.activeStudent = response.virifedStudent.data.length;
       this.loadData = false;

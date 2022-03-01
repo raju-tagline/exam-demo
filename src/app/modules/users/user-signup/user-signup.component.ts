@@ -1,12 +1,7 @@
-import { IUserDataResponse } from '../../../interface/user.interface';
-import { UserDataService } from '../../../services/user-data.service';
+import { IUserDataResponse } from 'src/app/interface/user.interface';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-signup',

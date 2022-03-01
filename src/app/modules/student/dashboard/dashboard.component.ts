@@ -1,5 +1,5 @@
-import { IStudentProfileResponse } from '../../../interface/student.interface';
-import { UserDataService } from '../../../services/user-data.service';
+import { IStudentProfileResponse } from 'src/app/interface/student.interface';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

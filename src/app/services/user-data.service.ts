@@ -1,4 +1,4 @@
-import { LoginStatusService } from './login-status.service';
+import { LoginStatusService } from 'src/app/services/login-status.service';
 import {
   IStudentDataResponse,
   IVerifyStudentDataResponse,
@@ -8,8 +8,8 @@ import {
   IViewExamResponse,
   IResetPasswordResponse,
   IDeleteExamPaperResponse,
-} from '../interface/teacher.interface';
-import { IUserData, IUserDataResponse } from '../interface/user.interface';
+} from 'src/app/interface/teacher.interface';
+import { IUserData, IUserDataResponse } from 'src/app/interface/user.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -21,7 +21,7 @@ import {
   IEditStudentResponse,
   IChangeUserPasswordResponse,
   IuserPassword,
-} from '../interface/student.interface';
+} from 'src/app/interface/student.interface';
 import { Router } from '@angular/router';
 
 @Injectable({

@@ -1,25 +1,23 @@
-import { IViewExamResponse } from './../interface/teacher.interface';
-import { UserDataService } from '../services/user-data.service';
+import { IViewExamResponse } from 'src/app/interface/teacher.interface';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Injectable } from '@angular/core';
 import {
-  Router,
   Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ViewExamResolverService implements Resolve<IViewExamResponse> {
-
-  constructor(private userDataService:UserDataService){}
+  constructor(private userDataService: UserDataService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<IViewExamResponse> {
-      return this.userDataService.viewExam();
+    return this.userDataService.viewExam();
   }
 }

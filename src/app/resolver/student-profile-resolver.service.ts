@@ -1,16 +1,15 @@
-import { UserDataService } from '../services/user-data.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Injectable } from '@angular/core';
 import {
-  Router,
   Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   IEditStudentResponse,
   IStudentProfileResponse,
-} from '../interface/student.interface';
+} from 'src/app/interface/student.interface';
 
 @Injectable({
   providedIn: 'root',

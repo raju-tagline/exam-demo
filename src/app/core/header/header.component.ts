@@ -1,5 +1,5 @@
-import { LoginStatusService } from './../../services/login-status.service';
-import { UserDataService } from '../../services/user-data.service';
+import { LoginStatusService } from 'src/app/services/login-status.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -24,12 +24,6 @@ export class HeaderComponent implements OnInit {
     );
     this.token = this.userDataService.token;
     this.role = this.userDataService.role;
-    // if (this.token && this.role === 'teacher') {
-    //   this.router.navigate(['teacher/dashboard']);
-    // } else if (this.token && this.role === 'student') {
-    //   this.router.navigate(['student/dashboard']);
-    // } else {
-    // }
   }
 
   public LogIn(): void {}

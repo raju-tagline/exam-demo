@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { UserSignupComponent } from './modules/users/user-signup/user-signup.component';
-import { UserLoginComponent } from './modules/users/user-login/user-login.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { AppComponent } from 'src/app/app.component';
+import { UserSignupComponent } from 'src/app/modules/users/user-signup/user-signup.component';
+import { UserLoginComponent } from 'src/app/modules/users/user-login/user-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { CoreModule } from './core/core.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserSignupComponent,
-    UserLoginComponent
-  ],
+  declarations: [AppComponent, UserSignupComponent, UserLoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,9 +24,9 @@ import { CoreModule } from './core/core.module';
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
-    CoreModule
+    CoreModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

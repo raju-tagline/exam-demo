@@ -1,15 +1,12 @@
-import { UserDataService } from '../services/user-data.service';
-import { environment } from '../../environments/environment.prod';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Injectable } from '@angular/core';
 import {
-  Router,
   Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { IStudentDataResponse } from '../interface/teacher.interface';
+import { Observable } from 'rxjs';
+import { IStudentDataResponse } from 'src/app/interface/teacher.interface';
 
 @Injectable({
   providedIn: 'root',

@@ -1,4 +1,4 @@
-import { IQuestions } from '../../../interface/teacher.interface';
+import { IQuestions } from 'src/app/interface/teacher.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 

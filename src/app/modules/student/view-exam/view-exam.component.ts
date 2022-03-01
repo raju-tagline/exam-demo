@@ -1,12 +1,9 @@
 import { ActivatedRoute } from '@angular/router';
-import {
-  IStudentExam,
-  IStudentExamResponse,
-} from '../../../interface/student.interface';
-import { UserDataService } from '../../../services/user-data.service';
+import { IStudentExam } from 'src/app/interface/student.interface';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { StudentExamPaperComponent } from '../student-exam-paper/student-exam-paper.component';
+import { StudentExamPaperComponent } from 'src/app/modules/student/student-exam-paper/student-exam-paper.component';
 
 @Component({
   selector: 'app-view-exam',
@@ -37,7 +34,7 @@ export class ViewExamComponent implements OnInit {
   }
 
   public studentExam(): void {
-    this.activatedRoute.data.subscribe((response: any) :void=> {
+    this.activatedRoute.data.subscribe((response: any): void => {
       this.examArr = response.studentExamList?.data;
       this.totalExam = response.studentExamList?.data.length;
       this.loadData = false;

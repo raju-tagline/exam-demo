@@ -1,4 +1,4 @@
-import { UserDataService } from '../../../services/user-data.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { IStudentProfile } from 'src/app/interface/student.interface';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -23,7 +23,7 @@ export class StudentProfileComponent implements OnInit {
   }
 
   public studentProfile(): void {
-    this.activatedRoute.data.subscribe((response: any):void => {
+    this.activatedRoute.data.subscribe((response: any): void => {
       this.studentArr.push(response.studentProfile?.data);
       this.loadData = false;
     });

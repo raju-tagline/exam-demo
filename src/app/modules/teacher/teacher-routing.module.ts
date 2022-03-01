@@ -1,14 +1,14 @@
-import { ViewExamResolverService } from './../../resolver/view-exam-resolver.service';
-import { VerifiedStudentDetailsResolverService } from './../../resolver/verified-student-details-resolver.Service';
-import { VerifiedStudentComponent } from './verified-student/verified-student.component';
-import { ViewExamComponent } from './view-exam/view-exam.component';
-import { ShowStudentDataComponent } from './show-student-data/show-student-data.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ViewExamResolverService } from 'src/app/resolver/view-exam-resolver.service';
+import { VerifiedStudentDetailsResolverService } from 'src/app/resolver/verified-student-details-resolver.Service';
+import { VerifiedStudentComponent } from 'src/app/modules/teacher/verified-student/verified-student.component';
+import { ViewExamComponent } from 'src/app/modules/teacher/view-exam/view-exam.component';
+import { ShowStudentDataComponent } from 'src/app/modules/teacher/show-student-data/show-student-data.component';
+import { DashboardComponent } from 'src/app/modules/teacher/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VerifyStudentComponent } from './verify-student/verify-student.component';
-import { CreateExamComponent } from './create-exam/create-exam.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { VerifyStudentComponent } from 'src/app/modules/teacher/verify-student/verify-student.component';
+import { CreateExamComponent } from 'src/app/modules/teacher/create-exam/create-exam.component';
+import { ResetPasswordComponent } from 'src/app/modules/teacher/reset-password/reset-password.component';
 import { AuthGuard } from 'src/app/authguard/auth.guard';
 import { StudentListResolverService } from 'src/app/resolver/student-list-resolver.service';
 
@@ -32,7 +32,7 @@ const routes: Routes = [
   {
     path: 'view-exam',
     component: ViewExamComponent,
-    resolve:{viewExamDetail : ViewExamResolverService},
+    resolve: { viewExamDetail: ViewExamResolverService },
     canActivate: [AuthGuard],
   },
   {
