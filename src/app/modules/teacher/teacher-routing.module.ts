@@ -1,3 +1,4 @@
+import { VerifiedStudentDetailsResolverService } from './../../resolver/verified-student-details-resolver.Service';
 import { VerifiedStudentComponent } from './verified-student/verified-student.component';
 import { ViewExamComponent } from './view-exam/view-exam.component';
 import { ShowStudentDataComponent } from './show-student-data/show-student-data.component';
@@ -40,6 +41,8 @@ const routes: Routes = [
   {
     path: 'verified-student',
     component: VerifiedStudentComponent,
+    resolve: { virifedStudent: VerifiedStudentDetailsResolverService },
+    canActivate: [AuthGuard],
   },
   {
     path: 'reset-password',

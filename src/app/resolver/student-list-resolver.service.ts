@@ -21,7 +21,6 @@ export class StudentListResolverService
 
   resolve(
     route: ActivatedRouteSnapshot,
-
     state: RouterStateSnapshot
   ): Observable<IStudentDataResponse> {
     return this.userDataService.showStudentData();
