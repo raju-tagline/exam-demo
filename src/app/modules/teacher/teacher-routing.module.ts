@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { VerifyStudentComponent } from './verify-student/verify-student.component';
 import { CreateExamComponent } from './create-exam/create-exam.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { AuthGuard } from 'src/app/auth.guard';
+import { AuthGuard } from 'src/app/authguard/auth.guard';
 import { StudentListResolverService } from 'src/app/resolver/student-list-resolver.service';
 
 const routes: Routes = [
