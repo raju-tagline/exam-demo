@@ -20,7 +20,6 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     const token = this.userDataService.token;
-    console.log('token :>> ', token);
     if (token) {
       return true;
     } else {

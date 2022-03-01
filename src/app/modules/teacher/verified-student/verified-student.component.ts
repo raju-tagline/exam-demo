@@ -33,7 +33,7 @@ export class VerifiedStudentComponent implements OnInit {
   }
 
   public verfieStudent(): void {
-    this.activatedRoute.data.subscribe((response: any) => {
+    this.activatedRoute.data.subscribe((response: any):void => {
       this.verifieyData = response.virifedStudent.data;
       this.activeStudent = response.virifedStudent.data.length;
       this.loadData = false;

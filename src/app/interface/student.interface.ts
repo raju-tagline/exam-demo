@@ -7,6 +7,7 @@ export interface IStudentExam {
 }
 
 export interface IStudentExamResponse {
+  studentExamList: any;
   data: IStudentExam[];
   message: string;
   statusCode: number;

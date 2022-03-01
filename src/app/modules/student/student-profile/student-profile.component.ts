@@ -23,7 +23,7 @@ export class StudentProfileComponent implements OnInit {
   }
 
   public studentProfile(): void {
-    this.activatedRoute.data.subscribe((response: any) => {
+    this.activatedRoute.data.subscribe((response: any):void => {
       this.studentArr.push(response.studentProfile?.data);
       this.loadData = false;
     });

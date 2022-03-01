@@ -37,7 +37,7 @@ export class ViewExamComponent implements OnInit {
   }
 
   public studentExam(): void {
-    this.activatedRoute.data.subscribe((response: any) => {
+    this.activatedRoute.data.subscribe((response: any) :void=> {
       this.examArr = response.studentExamList?.data;
       this.totalExam = response.studentExamList?.data.length;
       this.loadData = false;

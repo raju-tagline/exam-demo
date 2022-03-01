@@ -35,7 +35,7 @@ export class ViewExamComponent implements OnInit {
   }
 
   public vierExam(): void {
-    this.activatedRoute.data.subscribe((response: any) => {
+    this.activatedRoute.data.subscribe((response: any):void => {
       // this.examDetails = response.viewExamDetail.data;
       this.loadData = false;
     });
