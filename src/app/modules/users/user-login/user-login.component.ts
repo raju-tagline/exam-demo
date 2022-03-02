@@ -4,6 +4,7 @@ import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
 
 @Component({
   selector: 'app-user-login',
@@ -17,7 +18,8 @@ export class UserLoginComponent implements OnInit {
     private userDataService: UserDataService,
     private toastr: ToastrService,
     private router: Router,
-    private loginStatusService: LoginStatusService
+    private loginStatusService: LoginStatusService,
+    private localstorageService: LocalstorageService
   ) {}
 
   ngOnInit(): void {}
@@ -31,18 +33,17 @@ export class UserLoginComponent implements OnInit {
         this.loginStatusService.isLogin$.next(true);
 
         if (res?.statusCode === 200 && res?.data.role === 'teacher') {
-          localStorage.setItem('Token', res?.data.token);
-          localStorage.setItem('name', res?.data.name);
-          localStorage.setItem('role', res?.data.role);
-          localStorage.setItem('email', res?.data.email);
+          this.localstorageService.setItem('token', res?.data.token);
+          this.localstorageService.setItem('name', res?.data.name);
+          this.localstorageService.setItem('email', res?.data.email);
+          this.localstorageService.setItem('role', res?.data.role);
           this.toastr.success(res?.message);
-
           this.router.navigate(['/teacher']);
         } else if (res?.statusCode === 200 && res?.data.role === 'student') {
-          localStorage.setItem('Token', res?.data.token);
-          localStorage.setItem('name', res?.data.name);
-          localStorage.setItem('role', res?.data.role);
-          localStorage.setItem('email', res?.data.email);
+          this.localstorageService.setItem('token', res?.data.token);
+          this.localstorageService.setItem('name', res?.data.name);
+          this.localstorageService.setItem('email', res?.data.email);
+          this.localstorageService.setItem('role', res?.data.role);
           this.toastr.success(res?.message);
           this.router.navigate(['/student']);
         } else {

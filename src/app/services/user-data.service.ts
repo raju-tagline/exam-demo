@@ -1,3 +1,4 @@
+import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { LoginStatusService } from 'src/app/services/login-status.service';
 import {
   IStudentDataResponse,
@@ -29,7 +30,7 @@ import { Router } from '@angular/router';
 })
 export class UserDataService implements OnInit {
   private url: string = environment.url;
-  public token: string = localStorage.getItem('Token') || '';
+  public token: string = localStorage.getItem('token') || '';
   public name: string = localStorage.getItem('name') || '';
   public role: string = localStorage.getItem('role') || '';
   public headers = new HttpHeaders().set('access-token', this.token);
@@ -37,7 +38,8 @@ export class UserDataService implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private loginStatusService: LoginStatusService
+    private loginStatusService: LoginStatusService,
+    private localstorageService: LocalstorageService
   ) {}
 
   ngOnInit(): void {}
@@ -139,10 +141,10 @@ export class UserDataService implements OnInit {
   }
 
   public LogOut(): void {
-    localStorage.removeItem('Token');
-    localStorage.removeItem('name');
-    localStorage.removeItem('role');
-    localStorage.removeItem('email');
+    const data = ['token', 'name', 'role', 'email'];
+    data.forEach((element) => {
+      this.localstorageService.removeItem(element);
+    });
     this.router.navigate(['']);
     this.loginStatusService.isLogin$.next(false);
   }
