@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url:'https://nodejsexamination.herokuapp.com/'
+  url: 'https://nodejsexamination.herokuapp.com/',
 };
 
 /*

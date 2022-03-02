@@ -3,17 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-back',
   templateUrl: './back.component.html',
-  styleUrls: ['./back.component.scss']
+  styleUrls: ['./back.component.scss'],
 })
 export class BackComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  public goBack():void{
+  public goBack(): void {
     history.back();
   }
-
 }
