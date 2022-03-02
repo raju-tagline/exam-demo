@@ -51,12 +51,7 @@ export class UserDataService implements OnInit {
   }
 
   public showStudentData(): Observable<IStudentDataResponse> {
-    return this.http.get<IStudentDataResponse>(
-      `${this.url}dashboard/Teachers`,
-      {
-        headers: this.headers,
-      }
-    );
+    return this.http.get<IStudentDataResponse>(`${this.url}dashboard/Teachers`);
   }
 
   public viewStudentData(
@@ -64,34 +59,24 @@ export class UserDataService implements OnInit {
   ): Observable<IVerifyStudentDataResponse> {
     const getUrl =
       `${this.url}dashboard/Teachers/viewStudentDetail?id=` + userID;
-    return this.http.get<IVerifyStudentDataResponse>(getUrl, {
-      headers: this.headers,
-    });
+    return this.http.get<IVerifyStudentDataResponse>(getUrl);
   }
 
   public verifiedStudentData(): Observable<IShowStudentProfileResponse> {
     return this.http.get<IShowStudentProfileResponse>(
-      `${this.url}dashboard/Teachers/StudentForExam`,
-      {
-        headers: this.headers,
-      }
+      `${this.url}dashboard/Teachers/StudentForExam`
     );
   }
 
   public viewExam(): Observable<IViewExamResponse> {
     return this.http.get<IViewExamResponse>(
-      `${this.url}dashboard/Teachers/viewExam`,
-      {
-        headers: this.headers,
-      }
+      `${this.url}dashboard/Teachers/viewExam`
     );
   }
 
   public viewExamData(examId: string): Observable<IViewStudentExamResponse> {
     const getUrl = `${this.url}dashboard/Teachers/examDetail?id=` + examId;
-    return this.http.get<IViewStudentExamResponse>(getUrl, {
-      headers: this.headers,
-    });
+    return this.http.get<IViewStudentExamResponse>(getUrl);
   }
 
   // public studentDetail(): Observable<IStudentProfileResponse> {
@@ -105,10 +90,7 @@ export class UserDataService implements OnInit {
 
   public viewExamPaper(userId: string): Observable<IUserData> {
     return this.http.get<IUserData>(
-      `${this.url}student/examPaper?id=` + userId,
-      {
-        headers: this.headers,
-      }
+      `${this.url}student/examPaper?id=` + userId
     );
   }
 
@@ -123,19 +105,13 @@ export class UserDataService implements OnInit {
 
   public viewStudentAllExam(): Observable<IStudentExamResponse> {
     return this.http.get<IStudentExamResponse>(
-      `${this.url}student/studentExam`,
-      {
-        headers: this.headers,
-      }
+      `${this.url}student/studentExam`
     );
   }
 
   public studentProfile(): Observable<IStudentProfileResponse> {
     return this.http.get<IStudentProfileResponse>(
-      `${this.url}student/getStudentDetail`,
-      {
-        headers: this.headers,
-      }
+      `${this.url}student/getStudentDetail`
     );
   }
 
@@ -143,10 +119,7 @@ export class UserDataService implements OnInit {
     examId: string
   ): Observable<IStudentExamPaperResponse> {
     return this.http.get<IStudentExamPaperResponse>(
-      `${this.url}student/examPaper?id=` + examId,
-      {
-        headers: this.headers,
-      }
+      `${this.url}student/examPaper?id=` + examId
     );
   }
 
@@ -155,10 +128,7 @@ export class UserDataService implements OnInit {
   ): Observable<IEditStudentResponse> {
     return this.http.put<IEditStudentResponse>(
       `${this.url}student/studentProfile`,
-      userId,
-      {
-        headers: this.headers,
-      }
+      userId
     );
   }
 
@@ -167,19 +137,13 @@ export class UserDataService implements OnInit {
   ): Observable<IChangeUserPasswordResponse> {
     return this.http.post<IChangeUserPasswordResponse>(
       `${this.url}users/ResetPassword`,
-      userPassword,
-      {
-        headers: this.headers,
-      }
+      userPassword
     );
   }
 
   public deleteExam(examId: string): Observable<IDeleteExamPaperResponse> {
     return this.http.delete<IDeleteExamPaperResponse>(
-      `${this.url}dashboard/Teachers/deleteExam?id=` + examId,
-      {
-        headers: this.headers,
-      }
+      `${this.url}dashboard/Teachers/deleteExam?id=` + examId
     );
   }
 
