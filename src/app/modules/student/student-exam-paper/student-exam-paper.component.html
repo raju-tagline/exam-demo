@@ -1,21 +1,16 @@
-<div class="row justify-content-center" *ngIf="loadData">
-    <div class="col-sm-1">
-        <div class="spinner-border text-primary" role="status"></div>
-    </div>
-</div>
-<div class="row justify-content-end" *ngIf="!loadData">
+<div class="row justify-content-end">
     <div class="col-sm-1 mt-2">
         <button class="btn-close d-flex justify-content-end" (click)="close()"></button>
     </div>
 </div>
-<div class="row justify-content-center" *ngIf="!loadData">
+<div class="row justify-content-center">
     <div class="col-sm-8">
         <div [ngStyle]="{'color':'blue'}">
             <h4>Total Question :- {{ totalQuestion }}</h4>
         </div>
     </div>
 </div>
-<div class="row justify-content-center mb-5 me-5" *ngIf="!loadData">
+<div class="row justify-content-center mb-5 me-5">
     <div class="col-sm-8">
         <table class="table">
             <thead class="table-dark">

@@ -22,7 +22,6 @@ export class ViewExamComponent implements OnInit {
       _id: '',
     },
   ];
-  public loadData: boolean = true;
   public totalExam!: number;
 
   constructor(
@@ -39,7 +38,6 @@ export class ViewExamComponent implements OnInit {
       this.activatedRoute.snapshot.data['studentExamList'];
     this.examArr = studentExamList?.data;
     this.totalExam = studentExamList?.data.length;
-    this.loadData = false;
   }
 
   public viewExampaper(event: string): void {

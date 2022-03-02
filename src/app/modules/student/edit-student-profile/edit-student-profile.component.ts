@@ -16,7 +16,6 @@ import {
 export class EditStudentProfileComponent implements OnInit, AfterViewInit {
   public userId!: IUserId;
   public student: string = 'Student';
-  public loadData: boolean = true;
   public studentArr: IStudentProfile[] = [];
   public reactiveForm!: FormGroup;
 
@@ -40,10 +39,8 @@ export class EditStudentProfileComponent implements OnInit, AfterViewInit {
 
   public profile(): void {
     const studentProfile = this.activatedRoute.snapshot.data['studentProfile'];
-
     this.userDataService.studentProfile().subscribe((res): void => {
       this.studentArr.push(res?.data);
-      this.loadData = false;
     });
   }
 

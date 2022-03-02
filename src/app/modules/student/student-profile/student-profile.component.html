@@ -1,13 +1,8 @@
 <app-dashboard></app-dashboard>
-<div class="row justify-content-center" *ngIf="loadData">
-    <div class="col-sm-1">
-        <div class="spinner-border text-primary" role="status"></div>
-    </div>
-</div>
 
 <div class="row justify-content-center mt-5">
     <div class="col-sm-2">
-        <div class="card" style="width: 22rem;" *ngIf="!loadData">
+        <div class="card" style="width: 22rem;">
             <img src="/assets/student-pic.png">
             <div *ngFor="let s of studentArr">
                 <div class="card-body">

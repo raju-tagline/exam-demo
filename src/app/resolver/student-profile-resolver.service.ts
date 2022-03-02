@@ -1,3 +1,4 @@
+import { SpinnerService } from 'src/app/services/spinner.service';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { Injectable } from '@angular/core';
 import {
@@ -17,7 +18,10 @@ import {
 export class StudentProfileResolverService
   implements Resolve<IStudentProfileResponse | IEditStudentResponse>
 {
-  constructor(private userDataService: UserDataService) {}
+  constructor(
+    private userDataService: UserDataService,
+    private spinnerService: SpinnerService
+  ) {}
 
   resolve(
     route: ActivatedRouteSnapshot,

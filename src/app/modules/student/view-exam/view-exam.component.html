@@ -1,17 +1,12 @@
 <app-dashboard></app-dashboard>
-<div class="row justify-content-center" *ngIf="loadData">
-    <div class="col-sm-1">
-        <div class="spinner-border text-primary" role="status"></div>
-    </div>
-</div>
-<div class="row justify-content-center" *ngIf="!loadData">
+<div class="row justify-content-center">
     <div class="col-sm-8">
         <div [ngStyle]="{'color':'blue'}">
             <h4>Total Exams :- {{ totalExam }}</h4>
         </div>
     </div>
 </div>
-<div class="row justify-content-center" *ngIf="!loadData">
+<div class="row justify-content-center">
     <div class="col-sm-8">
         <table class="table">
             <thead class="table-dark">

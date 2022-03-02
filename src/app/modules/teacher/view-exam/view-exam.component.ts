@@ -20,7 +20,6 @@ export class ViewExamComponent implements OnInit {
   public examDetails: IViewExam[] = [
     { notes: '', _id: '', subjectName: '', email: '', _v: '' },
   ];
-  public loadData: boolean = true;
 
   constructor(
     private userDataService: UserDataService,
@@ -38,7 +37,6 @@ export class ViewExamComponent implements OnInit {
     const viewExamDetail: IViewExamResponse =
       this.activatedRoute.snapshot.data['viewExamDetail'];
     this.examDetails = viewExamDetail?.data;
-    this.loadData = false;
   }
 
   public viewExamDetails(id: string): void {

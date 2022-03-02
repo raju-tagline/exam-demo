@@ -19,11 +19,9 @@ export class VerifiedStudentComponent implements OnInit {
       _id: '',
     },
   ];
-  public loadData: boolean = true;
   public activeStudent!: number;
 
   constructor(private activatedRoute: ActivatedRoute) {}
-
   ngOnInit(): void {
     this.verfieStudent();
   }
@@ -33,6 +31,5 @@ export class VerifiedStudentComponent implements OnInit {
       this.activatedRoute.snapshot.data['virifedStudent'];
     this.verifieyData = virifedStudent?.data;
     this.activeStudent = virifedStudent?.data.length;
-    this.loadData = false;
   }
 }

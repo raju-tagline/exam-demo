@@ -20,21 +20,23 @@ export class StudentExamPaperComponent implements OnInit {
       _id: '',
     },
   ];
-  public loadData: boolean = true;
   public totalQuestion!: number;
 
   constructor(
     private userDataService: UserDataService,
-    public activeModal: NgbActiveModal
+    private activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
+    this.examPaper();
+  }
+
+  public examPaper(): void {
     this.userDataService
       .studentExamPaper(this.exampaperId)
       .subscribe((res: IStudentExamPaperResponse): void => {
         this.examArr = res?.data;
         this.totalQuestion = res?.data.length;
-        this.loadData = false;
       });
   }
 

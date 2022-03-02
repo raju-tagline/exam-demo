@@ -79,15 +79,6 @@ export class UserDataService implements OnInit {
     return this.http.get<IViewStudentExamResponse>(getUrl);
   }
 
-  // public studentDetail(): Observable<IStudentProfileResponse> {
-  //   return this.http.get<IStudentProfileResponse>(
-  //     `${this.url}student/getStudentDetail`,
-  //     {
-  //       headers: this.headers,
-  //     }
-  //   );
-  // }
-
   public viewExamPaper(userId: string): Observable<IUserData> {
     return this.http.get<IUserData>(
       `${this.url}student/examPaper?id=` + userId

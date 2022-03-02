@@ -16,7 +16,6 @@ import { VerifyStudentComponent } from 'src/app/modules/teacher/verify-student/v
 })
 export class ShowStudentDataComponent implements OnInit {
   public studentData: IShowStudentData[] = [];
-  public loadData: boolean = true;
 
   constructor(
     private userDataService: UserDataService,
@@ -26,10 +25,13 @@ export class ShowStudentDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.studentDetails();
+  }
+
+  public studentDetails(): void {
     const studentData: IStudentDataResponse =
       this.activatedRoute.snapshot.data['studentData'];
     this.studentData = studentData?.data;
-    this.loadData = false;
   }
 
   public viewStudentDetails(id: string): void {

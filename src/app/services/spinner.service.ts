@@ -5,14 +5,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SpinnerService {
-  public spinner$ = new BehaviorSubject(true); 
-  constructor() { }
-  
-  public setSpinner(){
+  public spinner$ = new BehaviorSubject<boolean>(false);
+  constructor() {}
+
+  public getSpinnerObs() {
     return this.spinner$.asObservable();
   }
 
-  public getSpinner(value:boolean) {
+  public setSpinner(value: boolean) {
     this.spinner$.next(value);
   }
 }
