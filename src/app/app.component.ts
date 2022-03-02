@@ -1,3 +1,4 @@
+import { SpinnerService } from 'src/app/services/spinner.service';
 import { Component } from '@angular/core';
 import {
   NavigationCancel,
@@ -14,20 +15,25 @@ import {
 })
 export class AppComponent {
   title = 'exam-demo';
-  public loading: boolean = false;
+  public loadSpinner!: boolean;
 
-  constructor(public router: Router) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        this.loading = true;
-      }
-      if (
-        event instanceof NavigationEnd ||
-        event instanceof NavigationCancel ||
-        event instanceof NavigationError
-      ) {
-        this.loading = false;
-      }
-    });
+  constructor(public router: Router, private spinnerService: SpinnerService) {
+    this.spinnerService
+      .setSpinner().subscribe((value: boolean): void => {
+        this.loadSpinner = value;
+      });
+    this.spinnerService.getSpinner(false);
+    // this.router.events.subscribe((event) => {
+    //   if (event instanceof NavigationStart) {
+    //     this.loadSpinner = true;
+    //   }
+    //   if (
+    //     event instanceof NavigationEnd ||
+    //     event instanceof NavigationCancel ||
+    //     event instanceof NavigationError
+    //   ) {
+    //     this.loadSpinner = false;
+    //   }
+    // });
   }
 }

@@ -1,6 +1,6 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
-<div *ngIf='loading' id="myModal" class="modal">
+<!-- <div *ngIf="loadSpinner" id="myModal" class="modal">
     <div class="lds-roller">
         <div></div>
         <div></div>
@@ -10,5 +10,10 @@
         <div></div>
         <div></div>
         <div></div>
+    </div>
+</div> -->
+<div class="row justify-content-center" *ngIf="loadSpinner">
+    <div class="col-sm-1">
+        <div class="spinner-border text-primary" role="status"></div>
     </div>
 </div>
