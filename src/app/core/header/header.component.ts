@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  public token!: string ;
+  public token: string = localStorage.getItem('token') || '';
   public role!: string;
 
   constructor(
@@ -17,10 +17,9 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loginStatusService.isLogin$.subscribe(
-      (value) => (this.token = this.userDataService.token)
-    );
-    this.token = this.userDataService.token;
+    this.loginStatusService.isLogin$.subscribe((value) => {
+      this.token = localStorage.getItem('token') || '';
+    });
     this.role = this.userDataService.role;
   }
 

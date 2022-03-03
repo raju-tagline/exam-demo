@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  public name: string;
+  public name!: string;
 
   constructor(private userDataService: UserDataService) {
-    this.name = this.userDataService.name;
+    this.name = localStorage.getItem('name') || '';
     this.viewStudent();
   }
 

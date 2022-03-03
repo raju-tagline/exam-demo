@@ -30,13 +30,12 @@ export class UserLoginComponent implements OnInit {
     this.userDataService
       .login(data)
       .subscribe((res: IUserDataResponse): void => {
-        this.loginStatusService.isLogin$.next(true);
-
         if (res?.statusCode === 200 && res?.data.role === 'teacher') {
           this.localstorageService.setItem('token', res?.data.token);
           this.localstorageService.setItem('name', res?.data.name);
           this.localstorageService.setItem('email', res?.data.email);
           this.localstorageService.setItem('role', res?.data.role);
+          this.loginStatusService.isLogin$.next(true);
           this.toastr.success(res?.message);
           this.router.navigate(['/teacher']);
         } else if (res?.statusCode === 200 && res?.data.role === 'student') {

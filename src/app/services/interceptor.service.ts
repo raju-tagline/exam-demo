@@ -1,7 +1,6 @@
-import { IHttpRequestResponse } from './../interface/http-request.interface';
+import { IHttpRequestResponse } from 'src/app/interface/http-request.interface';
 import { SpinnerService } from 'src/app/services/spinner.service';
 import { finalize, Observable } from 'rxjs';
-import { UserDataService } from 'src/app/services/user-data.service';
 import { Injectable } from '@angular/core';
 import {
   HttpEvent,
@@ -14,18 +13,17 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class InterceptorService implements HttpInterceptor{
-  public token!: string;
-  constructor(
-    private userDataService: UserDataService,
-    private spinnerService: SpinnerService
-  ) {}
+export class InterceptorService implements HttpInterceptor {
+  public token: string = localStorage.getItem('token') || '';
+  constructor(private spinnerService: SpinnerService) {}
 
   intercept(
     req: HttpRequest<IHttpRequestResponse>,
     next: HttpHandler
   ): Observable<HttpEvent<IHttpRequestResponse>> {
-    this.token = this.userDataService.token;
+    if (!this.token) {
+      this.token = localStorage.getItem('token') || '';
+    }
     const tokenReq = req.clone({
       headers: new HttpHeaders().set('access-token', this.token),
     });

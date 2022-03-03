@@ -1,4 +1,3 @@
-import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  public name: string;
+  public name!: string;
 
-  constructor(private userDataService: UserDataService) {
-    this.name = this.userDataService.name;
+  constructor() {
+    this.name = localStorage.getItem('name') || '';
   }
 
   ngOnInit(): void {}
