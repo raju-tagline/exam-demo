@@ -19,7 +19,6 @@ export class ShowStudentDataComponent implements OnInit {
 
   constructor(
     private userDataService: UserDataService,
-    private router: Router,
     private modalService: NgbModal,
     private activatedRoute: ActivatedRoute
   ) {}

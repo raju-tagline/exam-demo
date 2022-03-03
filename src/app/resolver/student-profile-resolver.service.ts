@@ -1,11 +1,7 @@
 import { SpinnerService } from 'src/app/services/spinner.service';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { Injectable } from '@angular/core';
-import {
-  Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot,
-} from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import {
   IEditStudentResponse,
@@ -24,8 +20,7 @@ export class StudentProfileResolverService
   ) {}
 
   resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    route: ActivatedRouteSnapshot
   ): Observable<IStudentProfileResponse | IEditStudentResponse> {
     const id = route.paramMap.get('id');
     if (id) {

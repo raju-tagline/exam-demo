@@ -7,13 +7,14 @@ import {
   HttpEvent,
   HttpHandler,
   HttpHeaders,
+  HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
-export class InterceptorService {
+export class InterceptorService implements HttpInterceptor{
   public token!: string;
   constructor(
     private userDataService: UserDataService,

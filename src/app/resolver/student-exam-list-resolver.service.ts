@@ -1,12 +1,8 @@
 import { IStudentExamResponse } from 'src/app/interface/student.interface';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { Injectable } from '@angular/core';
-import {
-  Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot,
-} from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Resolve } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +12,7 @@ export class StudentExamListResolverService
 {
   constructor(private userDataService: UserDataService) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<IStudentExamResponse> {
+  resolve(): Observable<IStudentExamResponse> {
     return this.userDataService.viewStudentAllExam();
   }
 }

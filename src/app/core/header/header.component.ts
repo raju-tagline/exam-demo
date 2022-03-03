@@ -1,7 +1,6 @@
 import { LoginStatusService } from 'src/app/services/login-status.service';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  public token: string = '';
+  public token!: string ;
   public role!: string;
 
   constructor(
     private userDataService: UserDataService,
-    private router: Router,
     private loginStatusService: LoginStatusService
   ) {}
 
