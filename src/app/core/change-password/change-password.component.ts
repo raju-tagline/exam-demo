@@ -5,7 +5,7 @@ import {
   IChangeUserPasswordResponse,
   IuserPassword,
 } from 'src/app/interface/student.interface';
-import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'change-password',
