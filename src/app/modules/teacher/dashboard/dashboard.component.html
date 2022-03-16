@@ -1,21 +1,23 @@
 <div class="navbar navbar-light bg-light justify-content-sm-around">
     <div class="nav-item">
-       Welcome, {{ name }}
+        Welcome, {{ name }}
     </div>
     <div class="nav-item">
-        <button class="btn nav-link active" aria-current="page" routerLink="/teacher/student-list">All Student list</button>
+        <button class="btn nav-link active" id="student-List" aria-current="page" routerLink="/teacher/student-list">All
+            Student list</button>
     </div>
     <div class="nav-item">
-        <button class="btn nav-link" routerLink="/teacher/create-exam">Create exam</button>
+        <button class="btn nav-link" id="student-Exam" routerLink="/teacher/create-exam">Create exam</button>
     </div>
     <div class="nav-item">
-        <button class="btn nav-link" routerLink="/teacher/view-exam">View exam</button>
+        <button class="btn nav-link" id="student-View-Exam" routerLink="/teacher/view-exam">View exam</button>
     </div>
     <div class="nav-item">
-        <div class="btn nav-link" routerLink="/teacher/verified-student">Verified Student</div>
+        <button class="btn nav-link" id="verified-Student" routerLink="/teacher/verified-student">Verified
+            Student</button>
     </div>
     <div class="nav-item">
-        <button class="btn btn-warning" routerLink="/teacher/reset-password">Reset Password</button>
+        <button class="btn btn-warning" id="reset-Password" routerLink="/teacher/reset-password">Reset Password</button>
     </div>
     <div class="nav-item">
         <app-back></app-back>

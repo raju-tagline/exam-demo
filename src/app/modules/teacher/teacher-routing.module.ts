@@ -13,11 +13,11 @@ import { AuthGuard } from 'src/app/authguard/auth.guard';
 import { StudentListResolverService } from 'src/app/resolver/student-list-resolver.service';
 
 const routes: Routes = [
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuard],
-  },
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  //   canActivate: [AuthGuard],
+  // },
   {
     path: 'student-list',
     component: ShowStudentDataComponent,
@@ -33,7 +33,7 @@ const routes: Routes = [
     path: 'view-exam',
     component: ViewExamComponent,
     resolve: { viewExamDetail: ViewExamResolverService },
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'create-exam',
@@ -53,7 +53,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'dashboard',
+    redirectTo: 'student-list',
   },
 ];
 
