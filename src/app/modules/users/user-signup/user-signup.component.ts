@@ -32,13 +32,15 @@ export class UserSignupComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.submit = true;
-    const data = this.myRegistrationForm.value;
+    if (this.myRegistrationForm.valid) {
+      this.submit = true;
+      const data = this.myRegistrationForm.value;
 
-    this.userDataService
-      .signUp(data)
-      .subscribe((res: IUserDataResponse): void => {
-        alert(res.message);
-      });
+      this.userDataService
+        .signUp(data)
+        .subscribe((res: IUserDataResponse): void => {
+          alert(res.message);
+        });
+    }
   }
 }

@@ -24,30 +24,32 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public onSubmit(event: IUserData): void {
-    const data = event;
+  public onSubmit(event: any): void {
+    if (event.valid) {
+      const data = event.value;
 
-    this.userDataService
-      .login(data)
-      .subscribe((res: IUserDataResponse): void => {
-        if (res?.statusCode === 200 && res?.data.role === 'teacher') {
-          this.localstorageService.setItem('token', res?.data.token);
-          this.localstorageService.setItem('name', res?.data.name);
-          this.localstorageService.setItem('email', res?.data.email);
-          this.localstorageService.setItem('role', res?.data.role);
-          this.loginStatusService.isLogin$.next(true);
-          this.toastr.success(res?.message);
-          this.router.navigate(['/teacher']);
-        } else if (res?.statusCode === 200 && res?.data.role === 'student') {
-          this.localstorageService.setItem('token', res?.data.token);
-          this.localstorageService.setItem('name', res?.data.name);
-          this.localstorageService.setItem('email', res?.data.email);
-          this.localstorageService.setItem('role', res?.data.role);
-          this.toastr.success(res?.message);
-          this.router.navigate(['/student']);
-        } else {
-          this.toastr.error(res?.message);
-        }
-      });
+      this.userDataService
+        .login(data)
+        .subscribe((res: IUserDataResponse): void => {
+          if (res?.statusCode === 200 && res?.data.role === 'teacher') {
+            this.localstorageService.setItem('token', res?.data.token);
+            this.localstorageService.setItem('name', res?.data.name);
+            this.localstorageService.setItem('email', res?.data.email);
+            this.localstorageService.setItem('role', res?.data.role);
+            this.loginStatusService.isLogin$.next(true);
+            this.toastr.success(res?.message);
+            this.router.navigate(['/teacher']);
+          } else if (res?.statusCode === 200 && res?.data.role === 'student') {
+            this.localstorageService.setItem('token', res?.data.token);
+            this.localstorageService.setItem('name', res?.data.name);
+            this.localstorageService.setItem('email', res?.data.email);
+            this.localstorageService.setItem('role', res?.data.role);
+            this.toastr.success(res?.message);
+            this.router.navigate(['/student']);
+          } else {
+            this.toastr.error(res?.message);
+          }
+        });
+    }
   }
 }
