@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" id="form-div">
     <div class="col-sm-6">
         <form (ngSubmit)="onSubmit(mysignup)" #mysignup="ngForm">
             <label for="email"><strong>Email</strong></label>
@@ -12,7 +12,7 @@
             <label for="password"><strong>Password</strong></label>
             <div>
                 <input type="password" id="password" class="form-control" name="password" required minlength="6"
-                    minlength="5" #password="ngModel" ngModel>
+                pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-z]).{6,32}$" #password="ngModel" ngModel>
             </div>
             <div *ngIf="!password.valid && password.touched">
                 <small class="text-danger">Please enter valid password</small>
