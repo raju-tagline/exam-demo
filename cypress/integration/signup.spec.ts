@@ -28,9 +28,15 @@ describe('First signup test', () => {
     cy.get('#form-div').click('bottom');
   });
 
-  it('check email validation using pattern', () => {
+  xit('check email validation using pattern', () => {
     cy.getSignUp();
     cy.get('#email').type('asdfasdf@asdf');
+    cy.get('#form-div').click('bottom');
+  });
+
+  xit('check validation of select using touch and untouch', () => {
+    cy.getSignUp();
+    // cy.get('select').('Teacher');
     cy.get('#form-div').click('bottom');
   });
 
