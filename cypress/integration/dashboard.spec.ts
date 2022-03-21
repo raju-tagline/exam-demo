@@ -1,31 +1,23 @@
 describe('After login', () => {
   it('Visits the first page after login', () => {
     cy.login('raju.tagline+1@gmail.com', 'Raju1234');
-    cy.wait(2000);
-    // cy.url().should('include', '/teacher/student-list');
-    // cy.wait(2000);
+    cy.wait(1000);
+    // cy.reload();
   });
 
-  it('clear localstroage', () => {
-    cy.wait(2000);
-    cy.reload();
+  it('check welcome text is present or not', () => {
+    // cy.wait(2000);
+    // cy.reload(); Welcome, Raju Tagline
     cy.get('app-dashboard > .navbar > :nth-child(1)').should(
       'have.text',
-      'Welcome, Raju Tagline'
+      ' Welcome,  '
     );
-    cy.wait(2000);
-    cy.clearLocalStorage();
+    cy.scrollTo('bottom');
   });
 
-  xit('reload', () => {
-    cy.reload();
-    cy.get(':nth-child(1) > .btn').should('have.class', 'btn btn-success');
-    cy.get(':nth-child(1) > .btn').should('have.text', 'LogIn');
-  });
-
-  xit('Visits student view exam after student list ', () => {
-    cy.login('raju.tagline+1@gmail.com', 'Raju1234');
-    cy.wait(3000);
+  it('Visits student view exam after student list ', () => {
+    // cy.login('raju.tagline+1@gmail.com', 'Raju1234');
+    // cy.wait(3000);
     //get table
     cy.get('table').should('have.class', 'table');
 
@@ -47,10 +39,15 @@ describe('After login', () => {
     );
   });
 
-  xit('test title of website', () => {
-    //get title of website
-    cy.login('raju.tagline+1@gmail.com', 'Raju1234');
-    cy.wait(3000);
-    cy.title().should('have.text', 'Welcome, Raju Tagline');
+  it('clear localstprage', () => {
+    // cy.wait(2000);
+    cy.clearLocalStorage();
+    cy.contains('LogOut').should('be.visible');
+  });
+
+  it('reload', () => {
+    cy.reload();
+    // cy.get(':nth-child(1) > .btn').should('have.class', 'btn btn-success');
+    cy.get(':nth-child(1) > .btn').should('have.text', 'LogIn');
   });
 });
