@@ -1,7 +1,13 @@
 describe('After login', () => {
+  it('check validation of login button',() => {
+    cy.visit('/');
+    cy.get('#btn-login').should('be.disabled');
+  })
+
   it('Visits the first page after login', () => {
     cy.login('raju.tagline+1@gmail.com', 'Raju1234');
     cy.wait(1000);
+    cy.url().should('include', 'teacher/student-list');
   });
 
   xit('check welcome text is present or not', () => {
@@ -12,7 +18,7 @@ describe('After login', () => {
     cy.scrollTo('bottom');
   });
 
-  it('Visits student view exam after student list ', () => {
+  xit('Visits student view exam after student list ', () => {
     //get table
     cy.get('table').should('have.class', 'table');
 
