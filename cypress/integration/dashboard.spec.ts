@@ -9,17 +9,20 @@ describe('After login', () => {
     cy.wait(1000);
     cy.url().should('include', 'teacher/student-list');
     cy.get('#verified-Student').and('have.text', 'Verified Student');
+    cy.get('table > tbody > tr:nth-child(130) > td:nth-child(6)').click({
+      force: true,
+    }); //for force click
   });
 
-  xit('check welcome text is present or not', () => {
+  it('check welcome text is present or not', () => {
     cy.get('app-dashboard > .navbar > :nth-child(1)').should(
       'have.text',
-      ' Welcome,  '
+      ' Welcome, Raju Tagline '
     );
     cy.scrollTo('bottom');
   });
 
-  xit('Visits student view exam after student list ', () => {
+  it('Visits student view exam after student list ', () => {
     //get table
     cy.get('table').should('have.class', 'table');
 
@@ -41,12 +44,12 @@ describe('After login', () => {
     );
   });
 
-  xit('clear localstprage', () => {
+  it('clear localstprage', () => {
     cy.clearLocalStorage();
     cy.contains('LogOut').should('be.visible');
   });
 
-  xit('reload', () => {
+  it('reload', () => {
     cy.reload();
     // cy.get(':nth-child(1) > .btn').should('have.class', 'btn btn-success');
     cy.get(':nth-child(1) > .btn').should('have.text', 'LogIn');
