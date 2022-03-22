@@ -1,13 +1,14 @@
 describe('After login', () => {
-  it('check validation of login button',() => {
+  it('check validation of login button', () => {
     cy.visit('/');
     cy.get('#btn-login').should('be.disabled');
-  })
+  });
 
   it('Visits the first page after login', () => {
     cy.login('raju.tagline+1@gmail.com', 'Raju1234');
     cy.wait(1000);
     cy.url().should('include', 'teacher/student-list');
+    cy.get('#verified-Student').and('have.text', 'Verified Student');
   });
 
   xit('check welcome text is present or not', () => {
