@@ -19,7 +19,7 @@
             </div>
             <small><a routerLink="/users/signup" id="a-singup">Don't have an Account? Register</a></small>
             <div>
-                <button class="btn btn-outline-info col-sm-3 mt-2" id="btn-login" type="submit">Login</button>
+                <button class="btn btn-outline-info col-sm-3 mt-2" id="btn-login" type="submit" [disabled]="!mysignup.valid">Login</button>
             </div>
         </form>
     </div>
