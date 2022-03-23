@@ -5,5 +5,10 @@
   "screenshotsFolder": "cypress/screenshots",
   "pluginsFile": "cypress/plugins/index.ts",
   "fixturesFolder": "cypress/fixtures",
-  "baseUrl": "http://localhost:4200/"
+  "baseUrl": "http://localhost:4200/",
+  "testFiles":[
+    "signup.spec.ts",
+    "login.spec.ts",
+    "dashboard.spec.ts"
+  ]
 }
