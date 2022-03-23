@@ -1,10 +1,18 @@
-describe('After login', () => {
-  it('check validation of login button', () => {
+describe('Teacher dashboard test cases', () => {
+  //-----------------CYPRESS TEST CASES STARTS-----------------
+
+  xit('change view of cypress display', () => {
+    cy.visit('/');
+    cy.viewport(1200, 500);
+  });
+
+  it.only('check validation of login button', () => {
     cy.visit('/');
     cy.get('#btn-login').should('be.disabled');
   });
 
-  it('Visits the first page after login', () => {
+  //use only to use only one test case
+  it.only('Visits the first page after login', () => {
     cy.login('raju.tagline+1@gmail.com', 'Raju1234');
     cy.wait(1000);
     cy.url().should('include', 'teacher/student-list');
@@ -54,4 +62,6 @@ describe('After login', () => {
     // cy.get(':nth-child(1) > .btn').should('have.class', 'btn btn-success');
     cy.get(':nth-child(1) > .btn').should('have.text', 'LogIn');
   });
+
+  //-----------------CYPRESS TEST CASES ENDS-----------------
 });
