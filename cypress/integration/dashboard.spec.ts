@@ -21,10 +21,17 @@ describe('Teacher dashboard test cases', () => {
 
   //-----------------CYPRESS TEST CASES STARTS-----------------
 
+  //use and assertions
+  it.only('Check and assertions', () => {
+    cy.get('#btn-login').and('be.disabled');
+  });
+
+  //change size of screen for responsive test
   it('change view of cypress display', () => {
     cy.viewport(1200, 500);
   });
 
+  //check button disable or not
   it('check validation of login button', () => {
     cy.get('#btn-login').should('be.disabled');
   });
@@ -35,7 +42,7 @@ describe('Teacher dashboard test cases', () => {
   });
 
   //first page og website
-  it('First page after login',() => {
+  it('First page after login', () => {
     cy.get('#verified-Student', { timeout: 10000 }).and(
       'have.text',
       'Verified Student'
@@ -47,11 +54,11 @@ describe('Teacher dashboard test cases', () => {
     }); //for force click
   });
 
+  //name of dashboard
   it('check welcome text is present or not', () => {
     cy.get('app-dashboard > .navbar > :nth-child(1)', {
       timeout: 10000,
     }).should('have.text', ' Welcome, Raju Tagline ');
-    // cy.scrollTo('bottom');
   });
 
   it('Visits student view exam after student list ', () => {
@@ -64,7 +71,7 @@ describe('Teacher dashboard test cases', () => {
       'S.NoStatusIdNameEmailAction'
     );
 
-    //get singel person info
+    //get single person info
     cy.get('table tr')
       .contains('td', '620f265128293b0015993d98')
       .should('be.visible');
@@ -76,14 +83,15 @@ describe('Teacher dashboard test cases', () => {
     );
   });
 
-  it('clear localstprage', () => {
+  //clera LocalStorage
+  it('clear localstorage', () => {
     cy.clearLocalStorage();
     cy.contains('LogOut').should('be.visible');
   });
 
-  it('reload', () => {
+  it.only('reload', () => {
     cy.reload();
-    // cy.get(':nth-child(1) > .btn').should('have.class', 'btn btn-success');
+    cy.get(':nth-child(1) > .btn').and('have.class', 'btn btn-success');
     cy.get(':nth-child(1) > .btn').should('have.text', 'LogIn');
   });
 
