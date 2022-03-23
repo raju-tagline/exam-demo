@@ -22,12 +22,10 @@ describe('Teacher dashboard test cases', () => {
   //-----------------CYPRESS TEST CASES STARTS-----------------
 
   it('change view of cypress display', () => {
-    cy.visit('/');
     cy.viewport(1200, 500);
   });
 
   it('check validation of login button', () => {
-    cy.visit('/');
     cy.get('#btn-login').should('be.disabled');
   });
 
