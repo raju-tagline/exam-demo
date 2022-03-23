@@ -1,4 +1,24 @@
 describe('Teacher dashboard test cases', () => {
+  //-----------------CYPRESS HOOKS STARTS-----------------
+
+  before(() => {
+    cy.visit('/'); // before run the spec cypress visit one time here
+  });
+
+  beforeEach(() => {
+    cy.viewport(1500, 800); // it will run after every it block
+  });
+
+  after(() => {
+    cy.viewport('ipad-2', 'landscape'); // run after the all the test are complete
+  });
+
+  afterEach(() => {
+    cy.scrollTo('bottom'); // run after every test case ends
+  });
+
+  //-----------------CYPRESS HOOKS ENDS-----------------
+
   //-----------------CYPRESS TEST CASES STARTS-----------------
 
   xit('change view of cypress display', () => {
